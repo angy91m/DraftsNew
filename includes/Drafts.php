@@ -195,7 +195,7 @@ abstract class Drafts {
 	 * @param bool $approvePage if user is in DraftsToApprove page
 	 * @return string HTML to be shown to the user
 	 */
-	public static function display( $title = null, $userID = null, $approvePage = false ) {
+	public static function display( $title = null, $userID = null, $draftStatus = null, $approvePage = false ) {
 		global $wgRequest;
 
 		// Gets draftID
