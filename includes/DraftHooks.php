@@ -172,24 +172,20 @@ class DraftHooks {
 						$request->getInt( 'wpDraftID', 0 )
 					);
 				}
-				if (!$draft->exists() || $draft->getUserID() === $user->getId()) {
-					// Load draft with info
-					// @todo FIXME: newFromText() *can* still return null and make Draft#save barf!
-					$draft->setTitle( Title::newFromText( $draftTitle ) );
-					$draft->setSection( $request->getInt( 'wpSection' ) );
-					$draft->setStartTime( $request->getText( 'wpStarttime' ) );
-					$draft->setEditTime( $request->getText( 'wpEdittime' ) );
-					$draft->setSaveTime( wfTimestampNow() );
-					$draft->setScrollTop( $request->getInt( 'wpScrolltop' ) );
-					$draft->setText( $text );
-					$draft->setSummary( $request->getText( 'wpSummary' ) );
-					$draft->setMinorEdit( $request->getBool( 'wpMinoredit' ) );
-					// Save draft (but only if it makes sense -- T21737)
-					if ( $text ) {
-						$draft->save();
-						// Use the new draft id
-						$request->setVal( 'draft', $draft->getID() );
-					}
+				$draft->setTitle( Title::newFromText( $draftTitle ) );
+				$draft->setSection( $request->getInt( 'wpSection' ) );
+				$draft->setStartTime( $request->getText( 'wpStarttime' ) );
+				$draft->setEditTime( $request->getText( 'wpEdittime' ) );
+				$draft->setSaveTime( wfTimestampNow() );
+				$draft->setScrollTop( $request->getInt( 'wpScrolltop' ) );
+				$draft->setText( $text );
+				$draft->setSummary( $request->getText( 'wpSummary' ) );
+				$draft->setMinorEdit( $request->getBool( 'wpMinoredit' ) );
+				// Save draft (but only if it makes sense -- T21737)
+				if ( $text && (!$draft->exists() || $draft->getUserID() === $user->getId()) ) {
+					$draft->save();
+					// Use the new draft id
+					$request->setVal( 'draft', $draft->getID() );
 				}
 			}
 		}
