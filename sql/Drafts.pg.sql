@@ -24,6 +24,9 @@ CREATE TABLE drafts (
   draft_text TEXT NOT NULL,
   draft_summary TEXT,
   draft_minoredit SMALLINT,
+  draft_status TEXT NOT NULL DEFAULT 'editing',
+  draft_refuse_reason TEXT NULL,
+  draft_refuse_user INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (draft_id)
 );
 

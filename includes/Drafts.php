@@ -25,19 +25,16 @@ abstract class Drafts {
 	 * Counts the number of existing drafts for a specific user
 	 *
 	 * @param Title|null $title Title of article, defaults to all articles
-	 * @param int|null $userID ID of user, defaults to current user
+	 * @param int|bool|null $userID ID of user, defaults to current user
+	 * @param string|null $draftStatus ID of user, defaults all statuses
 	 * @return int Number of drafts which match condition parameters
 	 */
-	public static function num( $title = null, $userID = null ) {
+	public static function num( $title = null, $userID = null, $draftStatus = null ) {
 		// Get database connection
 		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 
 		// Builds where clause
-		$where = [
-			'draft_savetime > ' . $dbr->addQuotes(
-				$dbr->timestamp( self::getDraftAgeCutoff() )
-			)
-		];
+		$where = [];
 
 		// Checks if a specific title was given
 		if ( $title !== null ) {
@@ -56,13 +53,21 @@ abstract class Drafts {
 			}
 		}
 
-		// Checks if specific user was given
-		if ( $userID !== null ) {
-			// Adds specific user to condition
-			$where['draft_user'] = $userID;
-		} else {
-			// Adds current user as condition
-			$where['draft_user'] = RequestContext::getMain()->getUser()->getId();
+		if ($userID !== true) {
+			// Checks if specific user was given
+			if ( $userID !== null ) {
+				// Adds specific user to condition
+				$where['draft_user'] = $userID;
+			} else {
+				// Adds current user as condition
+				$where['draft_user'] = RequestContext::getMain()->getUser()->getId();
+			}
+		}
+
+		// Checks if specific draftStatus was given
+		if ( $draftStatus !== null ) {
+			// Adds specific draftStatus to condition
+			$where['draft_status'] = $draftStatus;
 		}
 
 		// Get a list of matching drafts
@@ -120,22 +125,19 @@ abstract class Drafts {
 	 * Gets a list of existing drafts for a specific user
 	 *
 	 * @param Title|null $title Title of article, defaults to all articles
-	 * @param int|null $userID ID of user, defaults to current user
+	 * @param int|bool|null $userID ID of user, defaults to current user
+	 * @param string|null $draftStatus ID of user, defaults all statuses
 	 * @return Draft[]|null
 	 */
-	public static function get( $title = null, $userID = null ) {
+	public static function get( $title = null, $userID = null, $draftStatus = null ) {
 		// Removes expired drafts for a more accurate list
-		self::clean();
+		// self::clean();
 
 		// Gets database connection
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		// Builds where clause
-		$where = [
-			'draft_savetime > ' . $dbw->addQuotes(
-				$dbw->timestamp( self::getDraftAgeCutoff() )
-			)
-		];
+		$where = [];
 
 		// Checks if specific title was given
 		if ( $title !== null ) {
@@ -152,13 +154,21 @@ abstract class Drafts {
 			}
 		}
 
-		// Checks if a specific user was given
-		if ( $userID !== null ) {
-			// Adds specific user to conditions
-			$where['draft_user'] = $userID;
-		} else {
-			// Adds current user to conditions
-			$where['draft_user'] = RequestContext::getMain()->getUser()->getId();
+		if ($userID !== true) {
+			// Checks if specific user was given
+			if ( $userID !== null ) {
+				// Adds specific user to condition
+				$where['draft_user'] = $userID;
+			} else {
+				// Adds current user as condition
+				$where['draft_user'] = RequestContext::getMain()->getUser()->getId();
+			}
+		}
+
+		// Checks if specific draftStatus was given
+		if ( $draftStatus !== null ) {
+			// Adds specific draftStatus to condition
+			$where['draft_status'] = $draftStatus;
 		}
 
 		// Gets matching drafts from database
@@ -180,16 +190,18 @@ abstract class Drafts {
 	 * Outputs a table of existing drafts
 	 *
 	 * @param Title|null $title Title of article, defaults to all articles
-	 * @param int|null $userID ID of user, defaults to current user
+	 * @param int|bool|null $userID ID of user, defaults to current user
+	 * @param string|null $draftStatus ID of user, defaults all statuses
+	 * @param bool $approvePage if user is in DraftsToApprove page
 	 * @return string HTML to be shown to the user
 	 */
-	public static function display( $title = null, $userID = null ) {
+	public static function display( $title = null, $userID = null, $approvePage = false ) {
 		global $wgRequest;
 
 		// Gets draftID
 		$currentDraft = Draft::newFromID( $wgRequest->getInt( 'draft', 0 ) );
 		// Output HTML for list of drafts
-		$drafts = self::get( $title, $userID );
+		$drafts = self::get( $title, $userID, $draftStatus );
 		if ( $drafts !== null ) {
 			$html = '';
 			$context = RequestContext::getMain();
@@ -217,22 +229,33 @@ abstract class Drafts {
 				null,
 				wfMessage( 'drafts-view-saved' )->text()
 			);
+			$html .= Xml::element( 'th',
+ 				null,
+ 				wfMessage("drafts-view-status")->text()
+ 			);
 			$html .= Xml::element( 'th' );
 			$html .= Xml::closeElement( 'tr' );
 			// Add existing drafts for this page and user
 			/**
 			 * @var $draft Draft
 			 */
+			$draftsTitle = SpecialPage::getTitleFor( 'Drafts' );
+			$draftsToApproveTitle = SpecialPage::getTitleFor( 'DraftsToApprove' );
 			foreach ( $drafts as $draft ) {
 				// Get article title text
 				$htmlTitle = htmlspecialchars( $draft->getTitle()->getPrefixedText() );
 				// Build Article Load link
 				$urlLoad = $draft->getTitle()->getFullURL(
-					'action=edit&draft=' . urlencode( (string)$draft->getID() )
+					'action=edit&draft=' . urlencode( (string)$draft->getID() ) . ($approvePage ? '&wpApproveView=1' : '')
 				);
 				// Build discard link
-				$urlDiscard = SpecialPage::getTitleFor( 'Drafts' )->getFullURL(
+				$urlDiscard = $approvePage ? $draftsTitle->getFullURL(
 					sprintf( 'discard=%s&token=%s',
+						urlencode( (string)$draft->getID() ),
+						urlencode( $editToken )
+					)
+				) : $draftsToApproveTitle->getFullURL(
+					sprintf( 'refuse=%s&token=%s',
 						urlencode( (string)$draft->getID() ),
 						urlencode( $editToken )
 					)
@@ -281,13 +304,17 @@ abstract class Drafts {
 					null,
 					$lang->getHumanTimestamp( MWTimestamp::getInstance( $draft->getSaveTime() ), null, $user )
 				);
+				$html .= Xml::element( 'td',
+ 					null,
+ 					wfMessage("drafts-view-status-" . $draft->getStatus())->text()
+				);
 				$html .= Xml::openElement( 'td' );
 				$html .= Xml::element( 'a',
 					[
 						'href' => $urlDiscard,
 						'class' => 'mw-discard-draft-link'
 					],
-					wfMessage( 'drafts-view-discard' )->text()
+					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
 				);
 				$html .= Xml::closeElement( 'td' );
 				$html .= Xml::closeElement( 'tr' );

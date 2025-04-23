@@ -29,7 +29,11 @@ CREATE TABLE /*_*/drafts (
     draft_text mediumblob NOT NULL,
     draft_summary TINYBLOB,
     -- Is this a minor edit?
-    draft_minoredit BOOL
+    draft_minoredit BOOL,
+    -- Status
+    draft_status VARBINARY(255) NOT NULL default 'editing',
+    draft_refuse_reason TEXT NULL,
+    draft_refuse_user INTEGER NOT NULL default 0
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/draft_user_savetime ON /*_*/drafts ( draft_user, draft_savetime );

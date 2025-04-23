@@ -37,6 +37,12 @@ class Draft {
 	private $summary;
 	/** @var bool */
 	private $minoredit;
+	/** @var string */
+	private $status = 'editing';
+	/** @var string|null */
+	private $refuseReason = null;
+	/** @var int */
+	private $refuseUserID = 0;
 
 	/**
 	 * Creates a new Draft object from a draft ID
@@ -69,6 +75,11 @@ class Draft {
 		$draft->setText( $row->draft_text );
 		$draft->setSummary( $row->draft_summary );
 		$draft->setMinorEdit( $row->draft_minoredit );
+		$draft->setStatus( $row->draft_status );
+		if ( $draft->isRefused() ) {
+			$draft->setRefuseReason( $row->draft_refuse_reason );
+			$draft->setRefuseUserID( $row->draft_refuse_user );
+		}
 		return $draft;
 	}
 
@@ -251,6 +262,58 @@ class Draft {
 		$this->minoredit = $minoredit;
 	}
 
+	/**
+ 	 * @return string Status of draft
+ 	 */
+	  public function getStatus() {
+		return $this->status;
+	}
+
+	/**
+	 * Sets status of draft
+	 * @param string $status
+	 */
+	public function setStatus( string $status ) {
+		$this->status = $status;
+	}
+
+	/**
+ 	 * @return bool Refused status of draft
+ 	 */
+	public function isRefused() {
+		return $this->status == 'refused';
+	}
+
+	/**
+ 	 * @return string|null Refuse reason of draft
+ 	 */
+	public function getRefuseReason() {
+		return $this->refuseReason;
+	}
+
+	/**
+	 * Sets refuse reason of draft
+	 * @param string $reason
+	 */
+	public function setRefuseReason( string $reason ) {
+		$this->refuseReason = $reason;
+	}
+
+	/**
+ 	 * @return int Refuse User ID of draft
+ 	 */
+	  public function getRefuseUserID() {
+		return $this->refuseUserID;
+	}
+
+	/**
+	 * Sets refuse User ID of draft
+	 * @param int $reason
+	 */
+	public function setRefuseUserID( int $userID ) {
+		$this->refuseUserID = $userID;
+	}
+
 	/* Functions */
 
 	/**
@@ -277,7 +340,6 @@ class Draft {
 			// Exists immediately
 			return;
 		}
-		$userId = RequestContext::getMain()->getUser()->getId();
 		// Gets database connection
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		// Gets drafts for this article and user from database
@@ -285,8 +347,7 @@ class Draft {
 			'drafts',
 			[ '*' ],
 			[
-				'draft_id' => (int)$this->id,
-				'draft_user' => $userId
+				'draft_id' => (int)$this->id
 			],
 			__METHOD__
 		);
@@ -309,6 +370,11 @@ class Draft {
 		$this->text = $row->draft_text;
 		$this->summary = $row->draft_summary;
 		$this->minoredit = $row->draft_minoredit;
+		$this->status = $row->draft_status;
+		if ($this->isRefused()) {
+			$this->refuseReason = $row->draft_refuse_reason;
+			$this->refuseUserID = $row->draft_refuse_user;
+		}
 		// Updates state
 		$this->exists = true;
 	}
@@ -336,7 +402,8 @@ class Draft {
 			'draft_scrolltop' => (int)$this->scrolltop,
 			'draft_text' => (string)$this->text,
 			'draft_summary' => (string)$this->summary,
-			'draft_minoredit' => (int)$this->minoredit
+			'draft_minoredit' => (int)$this->minoredit,
+			'draft_status' => (string)$this->status
 		];
 		// Checks if draft already exists
 		if ( $this->exists === true ) {
@@ -400,5 +467,34 @@ class Draft {
 		);
 		// Updates state
 		$this->exists = false;
+	}
+
+	/**
+ 	 * Set draft row status to 'refused'
+ 	 * @param UserIdentity|null $user User object, defaults to current user
+ 	 */
+	public function refuse( string $reason ) {
+		// Uses RequestContext user as a fallback
+		$user = RequestContext::getMain()->getUser();
+		if(!$user->isAllowed('drafts-approve') || !isset($reason) || !is_string($reason)) {
+			return;
+		}
+		$this->refuseReason = $reason;
+		$this->refuseUserID = (int)$user->getId();
+		$this->status = 'refused';
+		// Gets database connection
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+		$dbw->update(
+			'drafts',
+			[
+				'draft_status' => $this->status,
+				'draft_refuse_reason' => $this->refuseReason,
+				'draft_refuse_user' => $this->refuseUserID
+			],
+			[
+				'draft_id' => $this->id
+			],
+			__METHOD__
+		);
 	}
 }
