@@ -1,5 +1,5 @@
 {
-	"name": "mediawiki/drafts",
+	"name": "mediawiki/drafts-approve",
 	"description": "Adds the ability to save [[Special:Drafts|draft]] versions of a page on the server",
 	"license": "GPL-2.0-or-later",
 	"require-dev": {

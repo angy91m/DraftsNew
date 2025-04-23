@@ -7,10 +7,10 @@
 -- See Drafts.sql for notes on each column
 BEGIN;
 
-CREATE SEQUENCE drafts_id_seq;
+CREATE SEQUENCE drafts_approve_id_seq;
 
-CREATE TABLE drafts (
-  draft_id INTEGER NOT NULL DEFAULT nextval('drafts_id_seq'),
+CREATE TABLE drafts_approve (
+  draft_id INTEGER NOT NULL DEFAULT nextval('drafts_approve_id_seq'),
   draft_token TEXT,
   draft_user INTEGER NOT NULL DEFAULT 0,
   draft_page INTEGER NOT NULL default 0,
@@ -31,9 +31,9 @@ CREATE TABLE drafts (
 );
 
 -- Todo: determine which of these are really needed
-CREATE INDEX draft_user_savetime ON drafts(draft_user, draft_savetime);
-CREATE INDEX draft_user_page_savetime ON drafts(draft_user, draft_page, draft_namespace, draft_title, draft_savetime);
-CREATE INDEX draft_savetime ON drafts(draft_savetime);
-CREATE INDEX draft_page ON drafts(draft_page);
+CREATE INDEX draft_approve_user_savetime ON drafts_approve(draft_user, draft_savetime);
+CREATE INDEX draft_approve_user_page_savetime ON drafts_approve(draft_user, draft_page, draft_namespace, draft_title, draft_savetime);
+CREATE INDEX draft_approve_savetime ON drafts_approve(draft_savetime);
+CREATE INDEX draft_approve_page ON drafts_approve(draft_page);
 
 COMMIT;

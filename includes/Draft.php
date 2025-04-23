@@ -344,7 +344,7 @@ class Draft {
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		// Gets drafts for this article and user from database
 		$row = $dbw->selectRow(
-			'drafts',
+			'drafts_approve',
 			[ '*' ],
 			[
 				'draft_id' => (int)$this->id
@@ -409,7 +409,7 @@ class Draft {
 		if ( $this->exists === true ) {
 			// Updates draft information
 			$dbw->update(
-				'drafts',
+				'drafts_approve',
 				$data,
 				[
 					'draft_id' => (int)$this->id,
@@ -420,7 +420,7 @@ class Draft {
 		} else {
 			// Gets a draft token exists for the current user and article
 			$existingRow = $dbw->selectField(
-				'drafts',
+				'drafts_approve',
 				'draft_token',
 				[
 					'draft_user' => $data['draft_user'],
@@ -434,7 +434,7 @@ class Draft {
 			// this article
 			if ( $existingRow === false ) {
 				// Inserts row in the database
-				$dbw->insert( 'drafts', $data, __METHOD__ );
+				$dbw->insert( 'drafts_approve', $data, __METHOD__ );
 				// Gets the id of the newly inserted row
 				$this->id = $dbw->insertId();
 				// Updates state
@@ -458,7 +458,7 @@ class Draft {
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		// Deletes draft from database verifying propper user to avoid hacking!
 		$dbw->delete(
-			'drafts',
+			'drafts_approve',
 			[
 				'draft_id' => $this->id,
 				'draft_user' => $user->getId()
@@ -485,7 +485,7 @@ class Draft {
 		// Gets database connection
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->update(
-			'drafts',
+			'drafts_approve',
 			[
 				'draft_status' => $this->status,
 				'draft_refuse_reason' => $this->refuseReason,

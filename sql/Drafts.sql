@@ -3,7 +3,7 @@
 -- 
 -- Table for storing working changes to pages that
 -- users have yet to commit.
-CREATE TABLE /*_*/drafts (
+CREATE TABLE /*_*/drafts_approve (
     -- Unique ID for drafts
     draft_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     -- Unique value generated at edit time to prevent duplicate submissions
@@ -36,8 +36,8 @@ CREATE TABLE /*_*/drafts (
     draft_refuse_user INTEGER NOT NULL default 0
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/draft_user_savetime ON /*_*/drafts ( draft_user, draft_savetime );
-CREATE INDEX /*i*/draft_user_page_savetime ON /*_*/drafts ( draft_user, draft_page, draft_namespace, draft_title, draft_savetime );
-CREATE INDEX /*i*/draft_savetime ON /*_*/drafts (draft_savetime);
-CREATE INDEX /*i*/draft_page ON /*_*/drafts (draft_page);
-CREATE INDEX /*i*/draft_title ON /*_*/drafts (draft_title, draft_namespace);
+CREATE INDEX /*i*/draft_approve_user_savetime ON /*_*/drafts_approve ( draft_user, draft_savetime );
+CREATE INDEX /*i*/draft_approve_user_page_savetime ON /*_*/drafts_approve ( draft_user, draft_page, draft_namespace, draft_title, draft_savetime );
+CREATE INDEX /*i*/draft_approve_savetime ON /*_*/drafts_approve (draft_savetime);
+CREATE INDEX /*i*/draft_approve_page ON /*_*/drafts_approve (draft_page);
+CREATE INDEX /*i*/draft_approve_title ON /*_*/drafts_approve (draft_title, draft_namespace);

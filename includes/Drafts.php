@@ -71,7 +71,7 @@ abstract class Drafts {
 		}
 
 		// Get a list of matching drafts
-		return $dbr->selectField( 'drafts', 'COUNT(*)', $where, __METHOD__ );
+		return $dbr->selectField( 'drafts_approve', 'COUNT(*)', $where, __METHOD__ );
 	}
 
 	/**
@@ -86,7 +86,7 @@ abstract class Drafts {
 			// Get database connection
 			$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 			// Removes expired drafts from database
-			$dbw->delete( 'drafts',
+			$dbw->delete( 'drafts_approve',
 				[
 					'draft_savetime < ' .
 						$dbw->addQuotes(
@@ -109,7 +109,7 @@ abstract class Drafts {
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		// Updates title and namespace of drafts upon moving
 		$dbw->update(
-			'drafts',
+			'drafts_approve',
 			[
 				'draft_namespace' => $newTitle->getNamespace(),
 				'draft_title' => $newTitle->getDBkey()
@@ -172,7 +172,7 @@ abstract class Drafts {
 		}
 
 		// Gets matching drafts from database
-		$result = $dbw->select( 'drafts', '*', $where, __METHOD__ );
+		$result = $dbw->select( 'drafts_approve', '*', $where, __METHOD__ );
 		$drafts = [];
 		if ( $result ) {
 			// Creates an array of matching drafts

@@ -1,5 +1,5 @@
 {
-	"name": "Drafts",
+	"name": "DraftsApprove",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"

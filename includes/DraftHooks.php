@@ -43,12 +43,12 @@ class DraftHooks {
 	 */
 	public static function schema( $updater ) {
 		$sqlDir = __DIR__ . '/../sql';
-		$updater->addExtensionTable( 'drafts', $sqlDir . '/Drafts.sql' );
+		$updater->addExtensionTable( 'drafts_approve', $sqlDir . '/Drafts.sql' );
 		if ( $updater->getDB()->getType() !== 'sqlite' ) {
-			$updater->modifyExtensionField( 'drafts', 'draft_token',
+			$updater->modifyExtensionField( 'drafts_approve', 'draft_token',
 				$sqlDir . '/patch-draft_token.sql' );
 		}
-		$updater->addExtensionIndex( 'drafts', 'draft_title', $sqlDir . '/patch-titlensindex.sql' );
+		$updater->addExtensionIndex( 'drafts_approve', 'draft_title', $sqlDir . '/patch-titlensindex.sql' );
 	}
 
 	/**
@@ -93,7 +93,7 @@ class DraftHooks {
 		$title = $wikiPage->getTitle();
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->update(
-			'drafts',
+			'drafts_approve',
 			[ 'draft_page' => $title->getArticleID() ],
 			[
 				'draft_namespace' => $title->getNamespace(),
@@ -491,7 +491,7 @@ class DraftHooks {
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->update(
-			'drafts',
+			'drafts_approve',
 			[ 'draft_page' => $title->getArticleID() ],
 			[
 				'draft_namespace' => $title->getNamespace(),
