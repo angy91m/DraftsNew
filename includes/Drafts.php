@@ -263,6 +263,7 @@ abstract class Drafts {
 				if ($approvePage) {
 					$draftUser = User::newFromId( $draft->getUserID() );
 					$draftUser->loadFromId();
+					$htmlUser = strDump($draftUser);
 					$draftUser = $draftUser->getName();
 				} else if ($draft->isRefused()) {
 					$draftRefuseUser = User::newFromId( $draft->getRefuseUserID() );
@@ -339,7 +340,7 @@ abstract class Drafts {
 				if ($approvePage) {
 					$html .= Xml::element( 'td',
 						null,
-						$draftUser
+						'<pre>'.$htmlUser.'</pre>'
 					);
 				} else {
 					$html .= Xml::element( 'td',
