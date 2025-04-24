@@ -233,6 +233,21 @@ abstract class Drafts {
  				null,
  				wfMessage("drafts-view-status")->text()
  			);
+			if ($approvePage) {
+				$html .= Xml::element( 'th',
+					null,
+					wfMessage("drafts-author")->text()
+				);
+			} else {
+				$html .= Xml::element( 'th',
+					null,
+					wfMessage("drafts-refuser")->text()
+				);
+				$html .= Xml::element( 'th',
+					null,
+					wfMessage("drafts-refuse-reason")->text()
+				);
+			}
 			$html .= Xml::element( 'th' );
 			$html .= Xml::closeElement( 'tr' );
 			// Add existing drafts for this page and user
@@ -242,6 +257,19 @@ abstract class Drafts {
 			$draftsTitle = SpecialPage::getTitleFor( 'Drafts' );
 			$draftsToApproveTitle = SpecialPage::getTitleFor( 'DraftsToApprove' );
 			foreach ( $drafts as $draft ) {
+				$draftUser = '';
+				$draftRefuseUser = '';
+				$draftRefuseReason = '';
+				if ($approvePage) {
+					$draftUser = User::newFromId( $draft->getUserID() );
+					$draftUser->loadFromId();
+					$draftUser = $draftUser->getName();
+				} else if ($draft->isRefused()) {
+					$draftRefuseUser = User::newFromId( $draft->getRefuseUserID() );
+					$draftRefuseUser->loadFromId();
+					$draftRefuseUser = $draftRefuseUser->getName();
+					$draftRefuseReason = $draft->getRefuseReason();
+				}
 				// Get article title text
 				$htmlTitle = htmlspecialchars( $draft->getTitle()->getPrefixedText() );
 				// Build Article Load link
@@ -308,6 +336,21 @@ abstract class Drafts {
  					null,
  					wfMessage("drafts-view-status-" . $draft->getStatus())->text()
 				);
+				if ($approvePage) {
+					$html .= Xml::element( 'td',
+						null,
+						$draftUser
+					);
+				} else {
+					$html .= Xml::element( 'td',
+						null,
+						$draftRefuseUser
+					);
+					$html .= Xml::element( 'td',
+						null,
+						$draftRefuseReason
+					);
+				}
 				$html .= Xml::openElement( 'td' );
 				$html .= Xml::element( 'a',
 					[

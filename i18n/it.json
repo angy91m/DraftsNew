@@ -55,5 +55,8 @@
 	"apihelp-loaddrafts-param-id": "L'ID della bozza.",
  	"apierror-approvedrafts-permissions": "Non hai i permessi per pubblicare una pagina.",
  	"apierror-must-be-draft-owner": "Non puoi salvare una bozza non tua.",
- 	"drafts-view-approve-permissions-error": "Non hai i permessi per visualizzare questa pagina."
+ 	"drafts-view-approve-permissions-error": "Non hai i permessi per visualizzare questa pagina.",
+	"drafts-author": "Autore",
+	"drafts-refuser": "Utente rifiutante",
+	"drafts-refuse-reason": "Motivo rifiuto"
 }

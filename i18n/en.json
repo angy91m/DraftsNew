@@ -54,5 +54,8 @@
 	"apihelp-loaddrafts-summary": "Load a previously saved draft.",
 	"apihelp-loaddrafts-param-id": "The ID of the draft.",
  	"apierror-approvedrafts-permissions": "You don't have permissions to publish a page.",
- 	"drafts-view-approve-permissions-error": "You don't have permissions to view this page."
+ 	"drafts-view-approve-permissions-error": "You don't have permissions to view this page.",
+	"drafts-author": "Author",
+	"drafts-refuser": "Refuse user",
+	"drafts-refuse-reason": "Refuse reason"
 }
