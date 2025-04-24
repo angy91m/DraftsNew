@@ -249,13 +249,13 @@ abstract class Drafts {
 					'action=edit&draft=' . urlencode( (string)$draft->getID() ) . ($approvePage ? '&wpApproveView=1' : '')
 				);
 				// Build discard link
-				$urlDiscard = $approvePage ? $draftsTitle->getFullURL(
-					sprintf( 'discard=%s&token=%s',
+				$urlDiscard = $approvePage ? $draftsToApproveTitle->getFullURL(
+					sprintf( 'refuse=%s&token=%s',
 						urlencode( (string)$draft->getID() ),
 						urlencode( $editToken )
 					)
-				) : $draftsToApproveTitle->getFullURL(
-					sprintf( 'refuse=%s&token=%s',
+				) : $draftsTitle->getFullURL(
+					sprintf( 'discard=%s&token=%s',
 						urlencode( (string)$draft->getID() ),
 						urlencode( $editToken )
 					)
