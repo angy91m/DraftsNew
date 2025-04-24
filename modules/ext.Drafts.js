@@ -2,7 +2,7 @@
 var isDraftOwner = document.getElementById('drafts-approve-is-draft-owner');
 if (isDraftOwner) isDraftOwner = parseInt(isDraftOwner.value, 10);
 if (!isDraftOwner) {
-	document.getElementById('wpTextbox1').disabled = true;
+	document.getElementById('wpTextbox1').setAttribute('readonly', '');
 }
 
 const params = (new URL(location)).searchParams;
