@@ -262,12 +262,12 @@ abstract class Drafts {
 				$draftRefuseReason = '';
 				if ($approvePage) {
 					$draftUser = User::newFromId( $draft->getUserID() );
-					$draftUser->loadFromId();
+					//$draftUser->loadFromId();
 					$htmlUser = strDump($draftUser);
 					$draftUser = $draftUser->getName();
 				} else if ($draft->isRefused()) {
 					$draftRefuseUser = User::newFromId( $draft->getRefuseUserID() );
-					$draftRefuseUser->loadFromId();
+					//$draftRefuseUser->loadFromId();
 					$draftRefuseUser = $draftRefuseUser->getName();
 					$draftRefuseReason = $draft->getRefuseReason();
 				}
