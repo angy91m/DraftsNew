@@ -42,7 +42,7 @@ class SpecialDraftsToApprove extends SpecialPage {
 		$draft = Draft::newFromID( $request->getInt( 'refuse', 0 ) );
 		if ( $draft->exists() ) {
 			// Discard draft
-			$draft->refuse();
+			$draft->refuse(trim($request->getText( 'refuse_reason', '' )));
 			$out->redirect(SpecialPage::getTitleFor( 'DraftsToApprove' )->getFullURL());
 		}
 
