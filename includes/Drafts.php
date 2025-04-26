@@ -211,7 +211,7 @@ abstract class Drafts {
 
 			$html .= Xml::element( 'div',
 				[],
-				strdump($user)
+				strdump($user->getName())
 			);
 
 			// Build XML
