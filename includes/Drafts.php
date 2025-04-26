@@ -209,11 +209,6 @@ abstract class Drafts {
 			$lang = $context->getLanguage();
 			$editToken = $user->getEditToken();
 
-			$html .= Xml::element( 'div',
-				[],
-				$user->getId() . ' ' . $user->getName()
-			);
-
 			// Build XML
 			$html .= Xml::openElement( 'table',
 				[
@@ -267,12 +262,9 @@ abstract class Drafts {
 				$draftRefuseReason = '';
 				if ($approvePage) {
 					$draftUser = User::newFromId( $draft->getUserID() );
-					//$draftUser->loadFromId();
-					$htmlUser = strDump($draft->getUserID());
 					$draftUser = $draftUser->getName();
 				} else if ($draft->isRefused()) {
 					$draftRefuseUser = User::newFromId( $draft->getRefuseUserID() );
-					//$draftRefuseUser->loadFromId();
 					$draftRefuseUser = $draftRefuseUser->getName();
 					$draftRefuseReason = $draft->getRefuseReason();
 				}
@@ -345,7 +337,7 @@ abstract class Drafts {
 				if ($approvePage) {
 					$html .= Xml::element( 'td',
 						null,
-						'<pre>'.$htmlUser.'</pre>'
+						$draftUser
 					);
 				} else {
 					$html .= Xml::element( 'td',
