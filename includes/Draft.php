@@ -63,6 +63,9 @@ class Draft {
 	 */
 	public static function newFromRow( $row ) {
 		$draft = new Draft( $row->draft_id, false );
+		if ((int)$row->draft_user) {
+			$draft->setUserID( (int)$row->draft_user );
+		}
 		$draft->setToken( $row->draft_token );
 		$draft->setTitle(
 			Title::makeTitle( $row->draft_namespace, $row->draft_title )
