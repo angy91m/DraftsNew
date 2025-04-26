@@ -268,7 +268,7 @@ abstract class Drafts {
 				if ($approvePage) {
 					$draftUser = User::newFromId( $draft->getUserID() );
 					//$draftUser->loadFromId();
-					$htmlUser = strDump($draftUser);
+					$htmlUser = strDump($draft->getUserID());
 					$draftUser = $draftUser->getName();
 				} else if ($draft->isRefused()) {
 					$draftRefuseUser = User::newFromId( $draft->getRefuseUserID() );
