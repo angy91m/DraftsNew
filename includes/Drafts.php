@@ -209,6 +209,11 @@ abstract class Drafts {
 			$lang = $context->getLanguage();
 			$editToken = $user->getEditToken();
 
+			$html .= Xml::element( 'div',
+				[],
+				strdump($user)
+			);
+
 			// Build XML
 			$html .= Xml::openElement( 'table',
 				[
