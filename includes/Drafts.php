@@ -212,9 +212,7 @@ abstract class Drafts {
 			// Build XML
 
 			if ($approvePage) {
-				$html .= Xml::element('textarea', [
-					'id' => 'draft-refuse-reason-field'
-				], '');
+				$html .= Xml::textarea('draft-refuse-reason-field');
 			}
 
 			$html .= Xml::openElement( 'table',
