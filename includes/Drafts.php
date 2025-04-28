@@ -210,6 +210,13 @@ abstract class Drafts {
 			$editToken = $user->getEditToken();
 
 			// Build XML
+
+			if ($approvePage) {
+				$html .= Xml::element('textarea', [
+					'id' => 'draft-refuse-reason-field'
+				]);
+			}
+
 			$html .= Xml::openElement( 'table',
 				[
 					'cellpadding' => 5,
