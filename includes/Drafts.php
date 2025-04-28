@@ -9,6 +9,7 @@
 use MediaWiki\MediaWikiServices;
 global $egDraftsLifeSpan;
 $egDraftsLifeSpan = 20;
+global $egDraftsLifeSpan;
 $egDraftsCleanRatio = 0;
 
 abstract class Drafts {
