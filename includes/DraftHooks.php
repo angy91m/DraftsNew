@@ -262,7 +262,7 @@ class DraftHooks {
 			$draft = Draft::newFromID($request->getInt('wpDraftApprove', 0));
 			if ($draft->exists()) {
 				self::$draftApprover = $user;
-				hSaveTest('ciao');
+				hSaveTest($editpage->textbox1);
 				$editPage->getContext()->setUser(User::newFromId($draft->getUserID()));
 				$editpage->textbox1 = $draft->getText();
 			}
