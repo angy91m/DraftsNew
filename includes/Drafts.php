@@ -362,14 +362,14 @@ abstract class Drafts {
 					] + ($approvePage? [
 						'onclick' => "((evt,tgt)=>{
 							evt.preventDefault();
-							const formData = new FormData();
-							formData.append('refuse_reason', document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value?.trim() || '');
 							fetch(tgt.href, {
 								method: 'POST',
 								headers: {
 									'Content-Type': 'application/x-www-form-urlencoded'
 								},
-								body: formData
+								body: new URLSearchParams({
+									refuse_reason: document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value?.trim() || ''
+								})
 							});
 						})(event,this)"
 					] : []),
