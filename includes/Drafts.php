@@ -7,8 +7,13 @@
  */
 
 use MediaWiki\MediaWikiServices;
+global $egDraftsLifeSpan;
+$egDraftsLifeSpan = 30;
+$egDraftsCleanRatio = 0;
 
 abstract class Drafts {
+	private static bool $cleaned = false;
+
 	/**
 	 * @return int
 	 */
@@ -30,6 +35,8 @@ abstract class Drafts {
 	 * @return int Number of drafts which match condition parameters
 	 */
 	public static function num( $title = null, $userID = null, $draftStatus = null ) {
+
+		self::clean();
 		// Get database connection
 		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 
@@ -79,6 +86,10 @@ abstract class Drafts {
 	 * by $egDraftsCleanRatio
 	 */
 	public static function clean() {
+		if (static::$cleaned) {return;}
+		$user = RequestContext::getMain()->getUser();
+		if ($user->isAnon()) {return;}
+		
 		global $egDraftsCleanRatio;
 
 		// Only perform this action a fraction of the time
@@ -92,10 +103,12 @@ abstract class Drafts {
 						$dbw->addQuotes(
 							$dbw->timestamp( self::getDraftAgeCutoff() )
 						)
+					. ($user->isAllowed('drafts-approve') ? '' : (' AND draft_user = ' . $user->getId()) )
 				],
 				__METHOD__
 			);
 		}
+		static::$cleaned = true;
 	}
 
 	/**
@@ -131,7 +144,7 @@ abstract class Drafts {
 	 */
 	public static function get( $title = null, $userID = null, $draftStatus = null ) {
 		// Removes expired drafts for a more accurate list
-		// self::clean();
+		self::clean();
 
 		// Gets database connection
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
