@@ -261,9 +261,7 @@ class DraftHooks {
 		if ($request->getText('wpSave') !== '' && $request->getInt('wpDraftApprove', 0) && $user->isAllowed('drafts-approve')) {
 			$draft = Draft::newFromID($request->getInt('wpDraftApprove', 0));
 			if ($draft->exists()) {
-				$user = User::newFromId($draft->getUserID());
-				$user->loadFromId();
-				self::$draftApprover = $editPage->getContext()->getUser();
+				self::$draftApprover = $user;
 				$editPage->getContext()->setUser(User::newFromId($draft->getUserID()));
 				$editpage->textbox1 = $draft->getText();
 			}
