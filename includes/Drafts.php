@@ -354,7 +354,12 @@ abstract class Drafts {
 					[
 						'href' => $urlDiscard,
 						'class' => 'mw-discard-draft-link'
-					],
+					] + ($approvePage? [
+						'onclick' => "((evt,tgt)=>{
+							evt.preventDefault();
+							console.log(tgt.href);
+						})(event,this)"
+					] : []),
 					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
 				);
 				$html .= Xml::closeElement( 'td' );
