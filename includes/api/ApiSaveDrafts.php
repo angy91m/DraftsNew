@@ -34,7 +34,7 @@ class ApiSaveDrafts extends ApiBase {
 		}
 		$draft->setToken( $params['drafttoken'] );
 		$draft->setTitle( Title::newFromText( $params['title'] ) );
-		$draft->setSection( $params['wpSection'] == '' ? null : $params['wpSection'] );
+		$draft->setSection( 0 );
 		$draft->setStartTime( $params['starttime'] );
 		$draft->setEditTime( $params['edittime'] );
 		$draft->setSaveTime( wfTimestampNow() );
