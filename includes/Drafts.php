@@ -363,9 +363,14 @@ abstract class Drafts {
 						'onclick' => "((evt,tgt)=>{
 							evt.preventDefault();
 							const formData = new FormData();
-							console.log(document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value || '');
-							//formData.append('refuse_reason', );
-							console.log(tgt.href);
+							formData.append('refuse_reason', document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value?.trim() || '');
+							fetch(tgt.href, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/x-www-form-urlencoded'
+								},
+								body: formData
+							}).then(()=>location.reload());
 						})(event,this)"
 					] : []),
 					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
