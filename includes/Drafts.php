@@ -227,7 +227,7 @@ abstract class Drafts {
 
 			$html .= Xml::openElement( 'tr' );
 			$html .= Xml::element( 'th',
-				[ 'width' => '75%', 'nowrap' => 'nowrap' ],
+				[ 'width' => '65%', 'nowrap' => 'nowrap' ],
 				wfMessage( 'drafts-view-article' )->text()
 			);
 			$html .= Xml::element( 'th',
@@ -249,7 +249,7 @@ abstract class Drafts {
 					wfMessage("drafts-refuser")->text()
 				);
 				$html .= Xml::element( 'th',
-					null,
+					['width' => '20%', 'nowrap' => 'nowrap'],
 					wfMessage("drafts-refuse-reason")->text()
 				);
 			}
