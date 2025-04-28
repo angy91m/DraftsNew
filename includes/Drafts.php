@@ -362,6 +362,9 @@ abstract class Drafts {
 					] + ($approvePage? [
 						'onclick' => "((evt,tgt)=>{
 							evt.preventDefault();
+							const formData = new FormData();
+							console.log(document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value || '');
+							//formData.append('refuse_reason', );
 							console.log(tgt.href);
 						})(event,this)"
 					] : []),
