@@ -370,7 +370,7 @@ abstract class Drafts {
 									'Content-Type': 'application/x-www-form-urlencoded'
 								},
 								body: formData
-							}).then(()=>location.reload());
+							});
 						})(event,this)"
 					] : []),
 					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
