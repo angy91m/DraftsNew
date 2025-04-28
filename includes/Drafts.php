@@ -370,7 +370,7 @@ abstract class Drafts {
 								body: new URLSearchParams({
 									refuse_reason: document.querySelector('textarea[name=\"draft-refuse-reason-field\"]')?.value?.trim() || ''
 								})
-							});
+							}).then(()=>location.reload());
 						})(event,this)"
 					] : []),
 					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
