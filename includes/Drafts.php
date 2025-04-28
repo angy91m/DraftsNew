@@ -361,7 +361,7 @@ abstract class Drafts {
 					);
 					$html .= Xml::element( 'td',
 						null,
-						$draftRefuseReason ? $draftRefuseReason : 'n.d.'
+						$draft->isRefused() ? ($draftRefuseReason ? $draftRefuseReason : 'n.d.') : ''
 					);
 				}
 				$html .= Xml::openElement( 'td' );
