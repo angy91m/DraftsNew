@@ -238,8 +238,8 @@ class DraftHooks {
 	}
 
 	public static function onVisualEditorBeforeEditor($output, $skin) {
-		// $context = $output->getContext();
-		// $user = $context->getUser();
+		$context = $output->getContext();
+		$user = $context->getUser();
 		// if ( $user->isAllowed( 'edit' ) && $user->isRegistered() && !$user->isAllowed('drafts-approve') ) {
 		// 	$output->addModules( 'ext.DraftsApproveVE' );
 		// 	$output->addModules( 'ext.DraftsApproveVEMobile' );
