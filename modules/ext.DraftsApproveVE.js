@@ -1,6 +1,6 @@
 function changeSaveButtonText() {
     // Cerca il bottone "Salva pagina..."
-    var saveButton = document.querySelector('.ve-ui-toolbar-saveButton .oo-ui-labelElement-label');
+    const saveButton = document.querySelector('.ve-ui-toolbar-group-save .oo-ui-tool-title');
     if (saveButton) {
         saveButton.textContent = 'Proponi';
     }
