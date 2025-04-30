@@ -248,6 +248,7 @@ class DraftHooks {
 				$out = RequestContext::getMain()->getOutput();
 				$out->clearHTML();
 				$out->redirect(SpecialPage::getTitleFor('Drafts')->getFullURL('proposed=1'));
+				exit;
 			} else {
 				$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
 			}
