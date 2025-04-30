@@ -7,7 +7,6 @@ function changeSaveButtonText() {
 function changeSaveButtonTextMobile() {
     console.log('ciao');
 }
-mw.hook( 've.newTarget' ).add( ( target ) => {
-    target.on( 'surfaceReady', changeSaveButtonText );
-    target.on( 'saveWorkflowChangePanel', changeSaveButtonTextMobile );
-} );
+
+mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
+mw.hook( 've.saveDialog.stateChanged' ).add( changeSaveButtonTextMobile );
