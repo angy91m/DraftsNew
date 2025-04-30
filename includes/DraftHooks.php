@@ -234,21 +234,20 @@ class DraftHooks {
 		if ( !$user->isAllowed('drafts-approve') ) {
 			// if ($wikitext) {
 			// 	$draft = Draft::newFromID( 0 );
-			// 	$draft->setTitle( $page->getTitle() );
-			// 	$draft->setSection( 0 );
-			// 	$draft->setStartTime( wfTimestampNow() );
-			// 	$draft->setEditTime( wfTimestampNow() );
+			// 	$draft->setTitle( Title::newFromText( $params['page'] ) );
+			// 	$draft->setSection( (int) $params['section'] );
+			// 	$draft->setStartTime( $params['starttimestamp'] );
+			// 	$draft->setEditTime( $params['basetimestamp'] );
 			// 	$draft->setSaveTime( wfTimestampNow() );
 			// 	$draft->setScrollTop( 0 );
 			// 	$draft->setText( $wikitext );
-			// 	$draft->setSummary( $request->getText( 'wpSummary' ) );
-			// 	$draft->setMinorEdit( $page->getMinorEdit() );
+			// 	$draft->setSummary( $params['summary'] );
+			// 	$draft->setMinorEdit( (bool) $params['minor'] );
 			// }
 			// Save draft (but only if it makes sense -- T21737)
 			// if ( $text ) {
 			// 	$draft->save();
-			hSaveTest($page);
-			hSaveTest($params, 1);
+			hSaveTest($wikitext);
 			$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
 			return false;
 		}
