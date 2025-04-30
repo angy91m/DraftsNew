@@ -379,7 +379,7 @@ class DraftHooks {
 		// Check permissions
 		if ( $user->isAllowed( 'edit' ) && $user->isRegistered() ) {
 			$request = $context->getRequest();
-			$context->getOutput()->addModules( 'ext.Drafts' );
+			$context->getOutput()->addModules( 'ext.DraftsApprove' );
 			$draft = Draft::newFromID($request->getInt( 'draft' ));
 			if (!$user->isAllowed('drafts-approve')) {
 				$buttons['save'] = new OOUI\ButtonInputWidget( [
