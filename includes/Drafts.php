@@ -238,29 +238,29 @@ abstract class Drafts {
 			$html .= Xml::openElement( 'tr' );
 			$html .= Xml::element( 'th',
 				[ 'width' => '65%', 'nowrap' => 'nowrap' ],
-				wfMessage( 'drafts-view-article' )->text()
+				wfMessage( 'draftsapprove-view-article' )->text()
 			);
 			$html .= Xml::element( 'th',
 				null,
-				wfMessage( 'drafts-view-saved' )->text()
+				wfMessage( 'draftsapprove-view-saved' )->text()
 			);
 			$html .= Xml::element( 'th',
  				null,
- 				wfMessage("drafts-view-status")->text()
+ 				wfMessage("draftsapprove-view-status")->text()
  			);
 			if ($approvePage) {
 				$html .= Xml::element( 'th',
 					null,
-					wfMessage("drafts-author")->text()
+					wfMessage("draftsapprove-author")->text()
 				);
 			} else {
 				$html .= Xml::element( 'th',
 					null,
-					wfMessage("drafts-refuser")->text()
+					wfMessage("draftsapprove-refuser")->text()
 				);
 				$html .= Xml::element( 'th',
 					['width' => '20%', 'nowrap' => 'nowrap'],
-					wfMessage("drafts-refuse-reason")->text()
+					wfMessage("draftsapprove-refuse-reason")->text()
 				);
 			}
 			$html .= Xml::element( 'th' );
@@ -347,7 +347,7 @@ abstract class Drafts {
 				);
 				$html .= Xml::element( 'td',
  					null,
- 					wfMessage("drafts-view-status-" . $draft->getStatus())->text()
+ 					wfMessage("draftsapprove-view-status-" . $draft->getStatus())->text()
 				);
 				if ($approvePage) {
 					$html .= Xml::element( 'td',
@@ -383,7 +383,7 @@ abstract class Drafts {
 							}).then(()=>location.reload());
 						})(event,this)"
 					] : []),
-					wfMessage('drafts-view-' . ($approvePage? 'refuse' : 'discard') )->text()
+					wfMessage('draftsapprove-view-' . ($approvePage? 'refuse' : 'discard') )->text()
 				);
 				$html .= Xml::closeElement( 'td' );
 				$html .= Xml::closeElement( 'tr' );
