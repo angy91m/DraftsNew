@@ -52,16 +52,16 @@
 		"Drafts": "includes/Drafts.php",
 		"Draft": "includes/Draft.php",
 		"DraftHooks": "includes/DraftHooks.php",
-		"SpecialDrafts": "includes/specials/SpecialDrafts.php",
-		"SpecialDraftsToApprove": "includes/specials/SpecialDraftsToApprove.php"
+		"SpecialDraftsApprove": "includes/specials/SpeciaDraftsApprove.php",
+		"SpecialDraftsApproveProposed": "includes/specials/SpecialDraftsApproveProposed.php"
 	},
 	"APIModules": {
 		"loaddrafts": "ApiLoadDrafts",
 		"savedrafts": "ApiSaveDrafts"
 	},
 	"SpecialPages": {
-		"Drafts": "SpecialDrafts",
-		"DraftsToApprove": "SpecialDraftsToApprove"
+		"DraftsApprove": "SpecialDraftsApprove",
+		"DraftsApproveProposed": "SpecialDraftsApproveProposed"
 	},
 	"ExtensionMessagesFiles": {
 		"DraftsApproveAlias": "DraftsApprove.alias.php"

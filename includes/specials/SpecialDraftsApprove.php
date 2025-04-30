@@ -6,9 +6,9 @@
  * @ingroup Extensions
  */
 
-class SpecialDrafts extends SpecialPage {
+class SpecialDraftsApprove extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'Drafts' );
+		parent::__construct( 'DraftsApprove' );
 	}
 
 	public function doesWrites() {

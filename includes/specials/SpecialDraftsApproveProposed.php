@@ -6,9 +6,9 @@
  * @ingroup Extensions
  */
 
-class SpecialDraftsToApprove extends SpecialPage {
+class SpecialDraftsApproveProposed extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'DraftsToApprove' );
+		parent::__construct( 'DraftsApproveProposed' );
 	}
 
 	public function doesWrites() {
@@ -43,7 +43,6 @@ class SpecialDraftsToApprove extends SpecialPage {
 		if ( $draft->exists() ) {
 			// Discard draft
 			$draft->refuse(trim($request->getText( 'refuse_reason', '' )));
-			$out->redirect(SpecialPage::getTitleFor( 'DraftsToApprove' )->getFullURL());
 		}
 
 		$count = Drafts::num(null, true, 'proposed');

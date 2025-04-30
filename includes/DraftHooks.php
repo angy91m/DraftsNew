@@ -126,7 +126,7 @@ class DraftHooks {
 			if(!empty($request->getText( 'wpDraftPropose' ))) {
 				$out = $context->getOutput();
 				$out->clearHTML();
-				$out->redirect(SpecialPage::getTitleFor('Drafts')->getFullURL('proposed=1'));
+				$out->redirect(SpecialPage::getTitleFor('DraftsApprove')->getFullURL('proposed=1'));
 			}
 			// Get draft
 			$draft = Draft::newFromID( $request->getInt( 'draft', 0 ) );

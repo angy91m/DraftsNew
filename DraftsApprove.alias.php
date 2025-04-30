@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliases for Drafts extension special pages
+ * Aliases for DraftsApprove extension special pages
  *
  * @file
  * @ingroup Extensions
@@ -10,317 +10,317 @@ $specialPageAliases = [];
 
 /** English (English) */
 $specialPageAliases['en'] = [
-	'Drafts' => [ 'Drafts' ],
-	'DraftsToApprove' => [ 'Drafts to approve' ],
+	'DraftsApprove' => [ 'Drafts' ],
+	'DraftsApproveProposed' => [ 'Drafts to approve' ],
 ];
 
 /** Afrikaans (Afrikaans) */
 $specialPageAliases['af'] = [
-	'Drafts' => [ 'Kladwerk' ],
+	'DraftsApprove' => [ 'Kladwerk' ],
 ];
 
 /** Arabic (العربية) */
 $specialPageAliases['ar'] = [
-	'Drafts' => [ 'مسودات' ],
+	'DraftsApprove' => [ 'مسودات' ],
 ];
 
 /** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = [
-	'Drafts' => [ 'مسودات' ],
+	'DraftsApprove' => [ 'مسودات' ],
 ];
 
 /** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = [
-	'Drafts' => [ 'খচৰা' ],
+	'DraftsApprove' => [ 'খচৰা' ],
 ];
 
 /** Western Balochi (بلوچی رخشانی) */
 $specialPageAliases['bgn'] = [
-	'Drafts' => [ 'پیش_نویس_ئان' ],
+	'DraftsApprove' => [ 'پیش_نویس_ئان' ],
 ];
 
 /** Banjar (Bahasa Banjar) */
 $specialPageAliases['bjn'] = [
-	'Drafts' => [ 'Drap' ],
+	'DraftsApprove' => [ 'Drap' ],
 ];
 
 /** Breton (brezhoneg) */
 $specialPageAliases['br'] = [
-	'Drafts' => [ 'Brouilhedoù' ],
+	'DraftsApprove' => [ 'Brouilhedoù' ],
 ];
 
 /** Bosnian (bosanski) */
 $specialPageAliases['bs'] = [
-	'Drafts' => [ 'Skiciranje' ],
+	'DraftsApprove' => [ 'Skiciranje' ],
 ];
 
 /** буряад (буряад) */
 $specialPageAliases['bxr'] = [
-	'Drafts' => [ 'Ноорог' ],
+	'DraftsApprove' => [ 'Ноорог' ],
 ];
 
 /** Czech (čeština) */
 $specialPageAliases['cs'] = [
-	'Drafts' => [ 'Koncepty' ],
+	'DraftsApprove' => [ 'Koncepty' ],
 ];
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = [
-	'Drafts' => [ 'Zwischengespeicherte_Versionen', 'Entwürfe' ],
+	'DraftsApprove' => [ 'Zwischengespeicherte_Versionen', 'Entwürfe' ],
 ];
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = [
-	'Drafts' => [ 'Teslaği' ],
+	'DraftsApprove' => [ 'Teslaği' ],
 ];
 
 /** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = [
-	'Drafts' => [ 'Nacerjenja' ],
+	'DraftsApprove' => [ 'Nacerjenja' ],
 ];
 
 /** Greek (Ελληνικά) */
 $specialPageAliases['el'] = [
-	'Drafts' => [ 'Πρόχειρα' ],
+	'DraftsApprove' => [ 'Πρόχειρα' ],
 ];
 
 /** Esperanto (Esperanto) */
 $specialPageAliases['eo'] = [
-	'Drafts' => [ 'Malnetoj' ],
+	'DraftsApprove' => [ 'Malnetoj' ],
 ];
 
 /** Spanish (español) */
 $specialPageAliases['es'] = [
-	'Drafts' => [ 'Borradores', 'Borrador' ],
+	'DraftsApprove' => [ 'Borradores', 'Borrador' ],
 ];
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = [
-	'Drafts' => [ 'پیش‌نویس‌ها' ],
+	'DraftsApprove' => [ 'پیش‌نویس‌ها' ],
 ];
 
 /** Finnish (suomi) */
 $specialPageAliases['fi'] = [
-	'Drafts' => [ 'Luonnokset' ],
+	'DraftsApprove' => [ 'Luonnokset' ],
 ];
 
 /** French (français) */
 $specialPageAliases['fr'] = [
-	'Drafts' => [ 'Brouillons' ],
+	'DraftsApprove' => [ 'Brouillons' ],
 ];
 
 /** Arpitan (arpetan) */
 $specialPageAliases['frp'] = [
-	'Drafts' => [ 'Brolyons' ],
+	'DraftsApprove' => [ 'Brolyons' ],
 ];
 
 /** Galician (galego) */
 $specialPageAliases['gl'] = [
-	'Drafts' => [ 'Bosquexos' ],
+	'DraftsApprove' => [ 'Bosquexos' ],
 ];
 
 /** Gujarati (ગુજરાતી) */
 $specialPageAliases['gu'] = [
-	'Drafts' => [ 'મુસદ્દો' ],
+	'DraftsApprove' => [ 'મુસદ્દો' ],
 ];
 
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = [
-	'Drafts' => [ 'טיוטות' ],
+	'DraftsApprove' => [ 'טיוטות' ],
 ];
 
 /** Croatian (hrvatski) */
 $specialPageAliases['hr'] = [
-	'Drafts' => [ 'Nacrti' ],
+	'DraftsApprove' => [ 'Nacrti' ],
 ];
 
 /** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = [
-	'Drafts' => [ 'Naćiski' ],
+	'DraftsApprove' => [ 'Naćiski' ],
 ];
 
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = [
-	'Drafts' => [ 'Bwouyon' ],
+	'DraftsApprove' => [ 'Bwouyon' ],
 ];
 
 /** Hungarian (magyar) */
 $specialPageAliases['hu'] = [
-	'Drafts' => [ 'Piszkozatok', 'Vázlatok' ],
+	'DraftsApprove' => [ 'Piszkozatok', 'Vázlatok' ],
 ];
 
 /** Interlingua (interlingua) */
 $specialPageAliases['ia'] = [
-	'Drafts' => [ 'Versiones_provisori' ],
+	'DraftsApprove' => [ 'Versiones_provisori' ],
 ];
 
 /** Indonesian (Bahasa Indonesia) */
 $specialPageAliases['id'] = [
-	'Drafts' => [ 'Draf' ],
+	'DraftsApprove' => [ 'Draf' ],
 ];
 
 /** Italian (italiano) */
 $specialPageAliases['it'] = [
-	'Drafts' => [ 'Bozze' ],
-	'DraftsToApprove' => [ 'Bozze da approvare' ],
+	'DraftsApprove' => [ 'Bozze' ],
+	'DraftsApproveProposed' => [ 'Bozze proposte' ],
 ];
 
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = [
-	'Drafts' => [ '下書き' ],
+	'DraftsApprove' => [ '下書き' ],
 ];
 
 /** Khmer (ភាសាខ្មែរ) */
 $specialPageAliases['km'] = [
-	'Drafts' => [ 'ពង្រាង' ],
+	'DraftsApprove' => [ 'ពង្រាង' ],
 ];
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = [
-	'Drafts' => [ '초안' ],
+	'DraftsApprove' => [ '초안' ],
 ];
 
 /** Colognian (Ripoarisch) */
 $specialPageAliases['ksh'] = [
-	'Drafts' => [ 'Versione_Zwescheshpeischere' ],
+	'DraftsApprove' => [ 'Versione_Zwescheshpeischere' ],
 ];
 
 /** Ladino (Ladino) */
 $specialPageAliases['lad'] = [
-	'Drafts' => [ 'Bruyones' ],
+	'DraftsApprove' => [ 'Bruyones' ],
 ];
 
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = [
-	'Drafts' => [ 'Virbereedungen' ],
+	'DraftsApprove' => [ 'Virbereedungen' ],
 ];
 
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = [
-	'Drafts' => [ 'РаботнаВерзија' ],
+	'DraftsApprove' => [ 'РаботнаВерзија' ],
 ];
 
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = [
-	'Drafts' => [ 'കരടുകൾ' ],
+	'DraftsApprove' => [ 'കരടുകൾ' ],
 ];
 
 /** Marathi (मराठी) */
 $specialPageAliases['mr'] = [
-	'Drafts' => [ 'मसूदा' ],
+	'DraftsApprove' => [ 'मसूदा' ],
 ];
 
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = [
-	'Drafts' => [ 'Utkast' ],
+	'DraftsApprove' => [ 'Utkast' ],
 ];
 
 /** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = [
-	'Drafts' => [ 'Warkversies' ],
+	'DraftsApprove' => [ 'Warkversies' ],
 ];
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = [
-	'Drafts' => [ 'Werkversies' ],
+	'DraftsApprove' => [ 'Werkversies' ],
 ];
 
 /** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = [
-	'Drafts' => [ 'Utkast' ],
+	'DraftsApprove' => [ 'Utkast' ],
 ];
 
 /** Occitan (occitan) */
 $specialPageAliases['oc'] = [
-	'Drafts' => [ 'Borrolhons' ],
+	'DraftsApprove' => [ 'Borrolhons' ],
 ];
 
 /** Punjabi (ਪੰਜਾਬੀ) */
 $specialPageAliases['pa'] = [
-	'Drafts' => [ 'ਖਾਕੇ' ],
+	'DraftsApprove' => [ 'ਖਾਕੇ' ],
 ];
 
 /** Polish (polski) */
 $specialPageAliases['pl'] = [
-	'Drafts' => [ 'Brudnopisy' ],
+	'DraftsApprove' => [ 'Brudnopisy' ],
 ];
 
 /** Portuguese (português) */
 $specialPageAliases['pt'] = [
-	'Drafts' => [ 'Rascunhos' ],
+	'DraftsApprove' => [ 'Rascunhos' ],
 ];
 
 /** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = [
-	'Drafts' => [ 'Rascunhos' ],
+	'DraftsApprove' => [ 'Rascunhos' ],
 ];
 
 /** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = [
-	'Drafts' => [ 'प्रारूप' ],
+	'DraftsApprove' => [ 'प्रारूप' ],
 ];
 
 /** Sicilian (sicilianu) */
 $specialPageAliases['scn'] = [
-	'Drafts' => [ 'Bozze' ],
+	'DraftsApprove' => [ 'Bozze' ],
 ];
 
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = [
-	'Drafts' => [ 'Rozpísané' ],
+	'DraftsApprove' => [ 'Rozpísané' ],
 ];
 
 /** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
-	'Drafts' => [ 'Нацрти' ],
+	'DraftsApprove' => [ 'Нацрти' ],
 ];
 
 /** Serbian (Latin script) (srpski (latinica)) */
 $specialPageAliases['sr-el'] = [
-	'Drafts' => [ 'Nacrti' ],
+	'DraftsApprove' => [ 'Nacrti' ],
 ];
 
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
-	'Drafts' => [ 'Utkast' ],
+	'DraftsApprove' => [ 'Utkast' ],
 ];
 
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = [
-	'Drafts' => [ 'Mga_balangkas' ],
+	'DraftsApprove' => [ 'Mga_balangkas' ],
 ];
 
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = [
-	'Drafts' => [ 'Taslaklar' ],
+	'DraftsApprove' => [ 'Taslaklar' ],
 ];
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = [
-	'Drafts' => [ 'Чернетки' ],
+	'DraftsApprove' => [ 'Чернетки' ],
 ];
 
 /** Urdu (اردو) */
 $specialPageAliases['ur'] = [
-	'Drafts' => [ 'نمونہ' ],
+	'DraftsApprove' => [ 'نمونہ' ],
 ];
 
 /** Venetian (vèneto) */
 $specialPageAliases['vec'] = [
-	'Drafts' => [ 'Bozze' ],
+	'DraftsApprove' => [ 'Bozze' ],
 ];
 
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = [
-	'Drafts' => [ 'Bản_nháp' ],
+	'DraftsApprove' => [ 'Bản_nháp' ],
 ];
 
 /** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
-	'Drafts' => [ '草稿' ],
+	'DraftsApprove' => [ '草稿' ],
 ];
 
 /** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
-	'Drafts' => [ '草稿' ],
+	'DraftsApprove' => [ '草稿' ],
 ];

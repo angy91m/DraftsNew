@@ -269,8 +269,8 @@ abstract class Drafts {
 			/**
 			 * @var $draft Draft
 			 */
-			$draftsTitle = SpecialPage::getTitleFor( 'Drafts' );
-			$draftsToApproveTitle = SpecialPage::getTitleFor( 'DraftsToApprove' );
+			$draftsTitle = SpecialPage::getTitleFor( 'DraftsApprove' );
+			$draftsToApproveTitle = SpecialPage::getTitleFor( 'DraftsApproveProposed' );
 			foreach ( $drafts as $draft ) {
 				$draftUser = '';
 				$draftRefuseUser = '';
