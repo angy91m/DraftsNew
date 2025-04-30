@@ -245,12 +245,9 @@ class DraftHooks {
 				$draft->setMinorEdit( (bool) $params['minor'] );
 				$draft->setStatus( 'proposed' );
 				$draft->save();
-				$out = RequestContext::getMain()->getOutput();
-				$out->clearHTML();
-				$out->redirect(SpecialPage::getTitleFor('Drafts')->getFullURL('proposed=1'));
-				exit;
+				$apiResponse['message'] = ['apiwarning-savedrafts-await-verify'];
 			} else {
-				$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
+				$apiResponse['message'] = ['apierror-approvedrafts-permissions'];
 			}
 			return false;
 		}
