@@ -95,12 +95,6 @@
 				"oojs-ui-core",
 				"oojs-ui-widgets"
 			]
-		},
-		"ext.DraftsApproveVEMobile": {
-			"scripts": "modules/ext.DraftsApproveVEMobile.js",
-			"dependencies": [
-				"ext.visualEditor.mobileArticleTarget"
-			]
 		}
 	},
 	"ResourceFileModulePaths": {
