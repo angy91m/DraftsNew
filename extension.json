@@ -64,15 +64,15 @@
 		"DraftsToApprove": "SpecialDraftsToApprove"
 	},
 	"ExtensionMessagesFiles": {
-		"DraftsAlias": "Drafts.alias.php"
+		"DraftsApproveAlias": "DraftsApprove.alias.php"
 	},
 	"MessagesDirs": {
-		"Drafts": [
+		"DraftsApprove": [
 			"i18n"
 		]
 	},
 	"ResourceModules": {
-		"ext.Drafts": {
+		"ext.DraftsApprove": {
 			"scripts": "modules/ext.Drafts.js",
 			"styles": "modules/ext.Drafts.css",
 			"dependencies": [
@@ -81,17 +81,17 @@
 				"oojs-ui-widgets"
 			],
 			"messages": [
-				"drafts-save-save",
-				"drafts-save-saved",
-				"drafts-save-saving",
-				"drafts-save-error",
-				"drafts-view-warn"
+				"draftsapprove-save-save",
+				"draftsapprove-save-saved",
+				"draftsapprove-save-saving",
+				"draftsapprove-save-error",
+				"draftsapprove-view-warn"
 			]
 		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteExtPath": "Drafts"
+		"remoteExtPath": "DraftsApprove"
 	},
 	"Hooks": {
 		"UserGetDefaultOptions": "DraftHooks::onUserGetDefaultOptions",

@@ -4,16 +4,16 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
-	"drafts": "گارليکونه",
-	"drafts-view-article": "مخ",
-	"drafts-view-existing": "شته گارليکونه",
-	"drafts-view-saved": "خوندي شو",
-	"drafts-view-notice": "د دې مخ لپاره تاسې $1 لرۍ.",
-	"drafts-view-notice-link": "$1 {{PLURAL:$1|گارليک|گارليکونه}}",
-	"drafts-save": "د يوه گارليک په توگه خوندي کول",
-	"drafts-save-save": "گارليک خوندي کول",
-	"drafts-save-saved": "خوندي شو",
-	"drafts-save-saving": "خوندي کېدنې کې دی...",
+	"draftsapprove": "گارليکونه",
+	"draftsapprove-view-article": "مخ",
+	"draftsapprove-view-existing": "شته گارليکونه",
+	"draftsapprove-view-saved": "خوندي شو",
+	"draftsapprove-view-notice": "د دې مخ لپاره تاسې $1 لرۍ.",
+	"draftsapprove-view-notice-link": "$1 {{PLURAL:$1|گارليک|گارليکونه}}",
+	"draftsapprove-save": "د يوه گارليک په توگه خوندي کول",
+	"draftsapprove-save-save": "گارليک خوندي کول",
+	"draftsapprove-save-saved": "خوندي شو",
+	"draftsapprove-save-saving": "خوندي کېدنې کې دی...",
 	"prefs-extension-drafts": "گارليکونه",
 	"tooltip-drafts-save": "د يوه گارليک په توگه خوندي کول"
 }

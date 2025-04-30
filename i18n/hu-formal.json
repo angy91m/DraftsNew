@@ -5,7 +5,7 @@
 			"Tacsipacsi"
 		]
 	},
-	"drafts-view-nonesaved": "Jelenleg nincs egyetlen elmentett piszkozata sem.",
-	"drafts-view-notice-link": "{{PLURAL:$1|egy|$1}} piszkozata",
-	"drafts-view-warn": "Biztosan elmegy az oldalról? Ezzel az összes mentetlen változtatás elvész."
+	"draftsapprove-view-nonesaved": "Jelenleg nincs egyetlen elmentett piszkozata sem.",
+	"draftsapprove-view-notice-link": "{{PLURAL:$1|egy|$1}} piszkozata",
+	"draftsapprove-view-warn": "Biztosan elmegy az oldalról? Ezzel az összes mentetlen változtatás elvész."
 }

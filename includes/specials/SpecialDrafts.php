@@ -63,13 +63,13 @@ class SpecialDrafts extends SpecialPage {
 
 		$count = Drafts::num();
 		if ( $count === 0 ) {
-			$out->addWikiMsg( 'drafts-view-nonesaved' );
+			$out->addWikiMsg( 'draftsapprove-view-nonesaved' );
 		} else {
 			// Add a summary
 			$out->wrapWikiMsg(
 				'<div class="mw-drafts-summary">$1</div>',
 				[
-					'drafts-view-summary',
+					'draftsapprove-view-summary',
 					$this->getLanguage()->formatNum( $egDraftsLifeSpan )
 				]
 			);

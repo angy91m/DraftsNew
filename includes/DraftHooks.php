@@ -209,7 +209,7 @@ class DraftHooks {
 					'div', [ 'id' => 'drafts-list-box' ] )
 				);
 				$out->addHTML( Xml::element(
-					'h3', null, $context->msg( 'drafts-view-existing' )->text() )
+					'h3', null, $context->msg( 'draftsapprove-view-existing' )->text() )
 				);
 				if ($request->getInt('wpApproveView') === 1 && $user->isAllowed('drafts-approve')) {
 					$out->addHTML( Drafts::display( $context->getTitle(), true, 'proposed', true ) );
@@ -223,9 +223,9 @@ class DraftHooks {
 						'href' => $context->getTitle()->getFullURL( 'action=edit' ),
 						'class' => 'mw-discard-draft-link'
 					],
-					$context->msg( 'drafts-view-notice-link' )->numParams( $numDrafts )->text()
+					$context->msg( 'draftsapprove-view-notice-link' )->numParams( $numDrafts )->text()
 				);
-				$out->addHTML( $context->msg( 'drafts-view-notice' )->rawParams( $link )->escaped() );
+				$out->addHTML( $context->msg( 'draftsapprove-view-notice' )->rawParams( $link )->escaped() );
 			}
 		}
 	}
@@ -253,7 +253,7 @@ class DraftHooks {
 			&& empty($request->getText('wpDraftSave'))
 		) {
 			$ctx->getOutput()->showErrorPage(
-				"drafts-page-save-error",
+				"draftsapprove-page-save-error",
 				'apierror-approvedrafts-permissions'
 			);
 			return;
@@ -389,7 +389,7 @@ class DraftHooks {
 					'inputId' => 'wpDraftPropose',
 					'useInputTag' => true,
 					'flags' => [ 'progressive', 'primary' ],
-					'label' => $context->msg( 'drafts-view-propose' )->text(),
+					'label' => $context->msg( 'draftsapprove-view-propose' )->text(),
 					'infusable' => true,
 					'type' => 'submit',
 					// Messages used: tooltip-save, tooltip-publish
@@ -407,7 +407,7 @@ class DraftHooks {
 						'inputId' => 'wpDraftSave',
 						'useInputTag' => true,
 						'flags' => [ 'progressive' ],
-						'label' => $context->msg( 'drafts-save-save' )->text(),
+						'label' => $context->msg( 'draftsapprove-save-save' )->text(),
 						'infusable' => true,
 						'type' => 'submit',
 						'title' => Linker::titleAttrib( 'drafts-save' ),
@@ -445,7 +445,7 @@ class DraftHooks {
 					]
 				);
 			} else {
-				$buttons['save']->setLabel($context->msg("drafts-view-approve")->text());
+				$buttons['save']->setLabel($context->msg("draftsapprove-view-approve")->text());
 				$buttons['save'] .= new OOUI\HiddenInputWidget(
 					[
 						'name' => 'wpDraftApprove',

@@ -5,9 +5,9 @@
 			"Lifeway"
 		]
 	},
-	"drafts-view-article": "Лаштык",
-	"drafts-view-saved": "Аралыме",
-	"drafts-save": "Тидым черновик семын аралаш",
-	"drafts-save-saved": "Аралыме",
+	"draftsapprove-view-article": "Лаштык",
+	"draftsapprove-view-saved": "Аралыме",
+	"draftsapprove-save": "Тидым черновик семын аралаш",
+	"draftsapprove-save-saved": "Аралыме",
 	"tooltip-drafts-save": "Черновик семын аралаш"
 }

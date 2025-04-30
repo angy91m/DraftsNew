@@ -4,13 +4,13 @@
 			"Yupik"
 		]
 	},
-	"drafts": "Hämmaz",
-	"drafts-view-article": "Seidd",
-	"drafts-view-saved": "Ruõkkum",
-	"drafts-view-discard": "Tirššâl",
-	"drafts-save": "Ruõkk tän teeʹkst hämmsen",
-	"drafts-save-save": "Ruõkk hämmaz",
-	"drafts-save-saved": "Ruõkkum",
+	"draftsapprove": "Hämmaz",
+	"draftsapprove-view-article": "Seidd",
+	"draftsapprove-view-saved": "Ruõkkum",
+	"draftsapprove-view-discard": "Tirššâl",
+	"draftsapprove-save": "Ruõkk tän teeʹkst hämmsen",
+	"draftsapprove-save-save": "Ruõkk hämmaz",
+	"draftsapprove-save-saved": "Ruõkkum",
 	"prefs-extension-drafts": "Hämmaz",
 	"tooltip-drafts-save": "Ruõkk hämmsen",
 	"apihelp-savedrafts-summary": "Ruõkk hämmaz."

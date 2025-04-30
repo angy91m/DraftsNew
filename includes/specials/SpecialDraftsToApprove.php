@@ -34,7 +34,7 @@ class SpecialDraftsToApprove extends SpecialPage {
 		// Make sure the user is logged in
 		$this->requireLogin();
         if (!$user->isAllowed('drafts-approve')) {
-			$out->addWikiMsg("drafts-view-approve-permissions-error");
+			$out->addWikiMsg("draftsapprove-view-approve-permissions-error");
             return;
         }
 
@@ -48,13 +48,13 @@ class SpecialDraftsToApprove extends SpecialPage {
 
 		$count = Drafts::num(null, true, 'proposed');
 		if ( $count === 0 ) {
-			$out->addWikiMsg( 'drafts-view-nonesaved' );
+			$out->addWikiMsg( 'draftsapprove-view-nonesaved' );
 		} else {
 			// Add a summary
 			$out->wrapWikiMsg(
 				'<div class="mw-drafts-summary">$1</div>',
 				[
-					'drafts-view-summary',
+					'draftsapprove-view-summary',
 					$this->getLanguage()->formatNum( $egDraftsLifeSpan )
 				]
 			);

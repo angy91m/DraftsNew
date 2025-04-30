@@ -4,10 +4,10 @@
 			"Cabal"
 		]
 	},
-	"drafts-view-notice-link": "$1 {{PLURAL:$1|ਖਰੜਾ|ਖਰੜੇ}}",
-	"drafts-save": "ਇਸ ਨੂੰ ਖਰੜੇ ਵਜੋਂ ਸੰਭਾਲੋ",
-	"drafts-save-save": "ਖਰੜਾ ਸੰਭਾਲੋ",
-	"drafts-save-error": "ਖਰੜਾ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ",
+	"draftsapprove-view-notice-link": "$1 {{PLURAL:$1|ਖਰੜਾ|ਖਰੜੇ}}",
+	"draftsapprove-save": "ਇਸ ਨੂੰ ਖਰੜੇ ਵਜੋਂ ਸੰਭਾਲੋ",
+	"draftsapprove-save-save": "ਖਰੜਾ ਸੰਭਾਲੋ",
+	"draftsapprove-save-error": "ਖਰੜਾ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ",
 	"apihelp-savedrafts-summary": "ਇੱਕ ਖਰੜਾ ਸੰਭਾਲੋ",
 	"apihelp-savedrafts-param-id": "ਖਰੜੇ ਦੀ ਸ਼ਨਾਖ਼ਤ (ID)।",
 	"apihelp-savedrafts-param-title": "ਖਰੜਾ ਦਾ ਸਿਰਲੇਖ।",
