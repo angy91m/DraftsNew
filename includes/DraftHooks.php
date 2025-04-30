@@ -244,6 +244,7 @@ class DraftHooks {
 			$output->addModules( 'ext.DraftsApproveVE' );
 			$output->addModules( 'ext.DraftsApproveVEMobile' );
 		}
+		return true;
 	}
 
 	/**
