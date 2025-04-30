@@ -10,7 +10,7 @@
 	"draftsapprove": "Bozze",
 	"draftsapprovetoapprove": "Bozze da approvare",
 	"draftsapprove-desc": "Aggiunge la possibilità di salvare versioni di [[Special:Drafts|bozza]] di una pagina sul server",
-	"draftsapprove-view": "VisualizzaBozza",
+	"draftsapprove-view": "Visualizza Bozza",
 	"draftsapprove-view-summary": "Questa pagina speciale mostra un elenco delle bozze esistenti. Le bozze non usate verranno cancellate automaticamente dopo {{PLURAL:$1|$1 giorno|$1 giorni}}.",
 	"draftsapprove-view-article": "Pagina",
 	"draftsapprove-view-existing": "Bozze esistenti",
@@ -58,5 +58,6 @@
  	"draftsapprove-view-approve-permissions-error": "Non hai i permessi per visualizzare questa pagina.",
 	"draftsapprove-author": "Autore",
 	"draftsapprove-refuser": "Utente rifiutante",
-	"draftsapprove-refuse-reason": "Motivo rifiuto"
+	"draftsapprove-refuse-reason": "Motivo rifiuto",
+	"apiwarning-savedrafts-await-verify": "Le tue modifiche sono in fase di verifica"
 }

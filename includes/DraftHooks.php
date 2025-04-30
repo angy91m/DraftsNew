@@ -232,23 +232,25 @@ class DraftHooks {
 
 	public static function onVisualEditorApiVisualEditorEditPreSave( $page, $user, $wikitext, &$params, $pluginData, &$apiResponse ) {
 		if ( !$user->isAllowed('drafts-approve') ) {
-			// if ($wikitext) {
-			// 	$draft = Draft::newFromID( 0 );
-			// 	$draft->setTitle( Title::newFromText( $params['page'] ) );
-			// 	$draft->setSection( (int) $params['section'] );
-			// 	$draft->setStartTime( $params['starttimestamp'] );
-			// 	$draft->setEditTime( $params['basetimestamp'] );
-			// 	$draft->setSaveTime( wfTimestampNow() );
-			// 	$draft->setScrollTop( 0 );
-			// 	$draft->setText( $wikitext );
-			// 	$draft->setSummary( $params['summary'] );
-			// 	$draft->setMinorEdit( (bool) $params['minor'] );
-			// }
-			// Save draft (but only if it makes sense -- T21737)
-			// if ( $text ) {
-			// 	$draft->save();
-			hSaveTest($wikitext);
-			$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
+			if ($wikitext) {
+				$draft = Draft::newFromID( 0 );
+				$draft->setTitle( Title::newFromText( $params['page'] ) );
+				$draft->setSection( (int) $params['section'] );
+				$draft->setStartTime( $params['starttimestamp'] );
+				$draft->setEditTime( $params['basetimestamp'] );
+				$draft->setSaveTime( wfTimestampNow() );
+				$draft->setScrollTop( 0 );
+				$draft->setText( $wikitext );
+				$draft->setSummary( $params['summary'] );
+				$draft->setMinorEdit( (bool) $params['minor'] );
+				$draft->setStatus( 'proposed' );
+				$draft->save();
+				$out = $page->getOutput();
+				$out->clearHTML();
+				$out->redirect(SpecialPage::getTitleFor('Drafts')->getFullURL('proposed=1'));
+			} else {
+				$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
+			}
 			return false;
 		}
 		return true;

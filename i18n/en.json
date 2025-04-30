@@ -57,5 +57,6 @@
  	"draftsapprove-view-approve-permissions-error": "You don't have permissions to view this page.",
 	"draftsapprove-author": "Author",
 	"draftsapprove-refuser": "Refuse user",
-	"draftsapprove-refuse-reason": "Refuse reason"
+	"draftsapprove-refuse-reason": "Refuse reason",
+	"apiwarning-savedrafts-await-verify": "Your edits are awaiting a verify"
 }

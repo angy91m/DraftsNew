@@ -47,5 +47,6 @@
 	"apierror-must-be-draft-owner": "{{doc-apierror}}",
 	"apierror-no-such-draft": "{{doc-apierror}}",
 	"apihelp-loaddrafts-summary": "{{doc-apihelp-summary|loaddrafts}}",
-	"apihelp-loaddrafts-param-id": "{{doc-apihelp-param|loaddrafts|id}}"
+	"apihelp-loaddrafts-param-id": "{{doc-apihelp-param|loaddrafts|id}}",
+	"apiwarning-savedrafts-await-verify": "{{doc-apiwarning}}"
 }

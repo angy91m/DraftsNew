@@ -58,7 +58,7 @@ class SpecialDrafts extends SpecialPage {
 			}
 		}
 		if ($request->getInt( 'proposed', 0 )) {
-			$out->addWikiTextAsInterface( 'Le tue modifiche sono in fase di verifica' );
+			$out->addWikiMsg( 'apiwarning-savedrafts-await-verify' );
 		}
 
 		$count = Drafts::num();
