@@ -232,9 +232,27 @@ class DraftHooks {
 
 	public static function onVisualEditorApiVisualEditorEditPreSave( $page, $user, $wikitext, &$params, $pluginData, &$apiResponse ) {
 		if ( !$user->isAllowed('drafts-approve') ) {
+			// if ($wikitext) {
+			// 	$draft = Draft::newFromID( 0 );
+			// 	$draft->setTitle( $page->getTitle() );
+			// 	$draft->setSection( 0 );
+			// 	$draft->setStartTime( wfTimestampNow() );
+			// 	$draft->setEditTime( wfTimestampNow() );
+			// 	$draft->setSaveTime( wfTimestampNow() );
+			// 	$draft->setScrollTop( 0 );
+			// 	$draft->setText( $wikitext );
+			// 	$draft->setSummary( $request->getText( 'wpSummary' ) );
+			// 	$draft->setMinorEdit( $page->getMinorEdit() );
+			// }
+			// Save draft (but only if it makes sense -- T21737)
+			// if ( $text ) {
+			// 	$draft->save();
+			hSaveTest($page);
+			hSaveTest($params, 1);
 			$apiResponse['message'] = [ 'apierror-approvedrafts-permissions'];
 			return false;
 		}
+		return true;
 	}
 
 	public static function onVisualEditorBeforeEditor($output, $skin) {
@@ -242,7 +260,6 @@ class DraftHooks {
 		$user = $context->getUser();
 		if ( $user->isAllowed( 'edit' ) && $user->isRegistered() && !$user->isAllowed('drafts-approve') ) {
 			$output->addModules( 'ext.DraftsApproveVE' );
-			//$output->addModules( 'ext.DraftsApproveVEMobile' );
 		}
 		return true;
 	}
