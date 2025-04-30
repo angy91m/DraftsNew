@@ -40,4 +40,4 @@ CREATE INDEX /*i*/draft_approve_user_savetime ON /*_*/drafts_approve ( draft_use
 CREATE INDEX /*i*/draft_approve_user_page_savetime ON /*_*/drafts_approve ( draft_user, draft_page, draft_namespace, draft_title, draft_savetime );
 CREATE INDEX /*i*/draft_approve_savetime ON /*_*/drafts_approve (draft_savetime);
 CREATE INDEX /*i*/draft_approve_page ON /*_*/drafts_approve (draft_page);
-CREATE INDEX /*i*/draft_approve_title ON /*_*/drafts_approve (draft_title, draft_namespace);
+CREATE INDEX IF NOT EXISTS /*i*/draft_approve_title ON /*_*/drafts_approve (draft_title, draft_namespace);
