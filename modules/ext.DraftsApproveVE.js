@@ -5,7 +5,7 @@ function changeSaveButtonText() {
     }
 }
 function changeSaveButtonTextMobile() {
-    console.log('ciao');
+    console.log(document.querySelector( '.oo-ui-processDialog-navigation .oo-ui-processDialog-actions-primary .oo-ui-labelElement-label' ).innerText);
 }
 
 mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
