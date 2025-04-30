@@ -245,7 +245,7 @@ class DraftHooks {
 				$draft->setMinorEdit( (bool) $params['minor'] );
 				$draft->setStatus( 'proposed' );
 				$draft->save();
-				$out = $page->getContext()->getOutput();
+				$out = RequestContext::getMain()->getOutput();
 				$out->clearHTML();
 				$out->redirect(SpecialPage::getTitleFor('Drafts')->getFullURL('proposed=1'));
 			} else {
