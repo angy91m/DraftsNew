@@ -91,7 +91,9 @@
 		"ext.DraftsApproveVE": {
 			"scripts": "modules/ext.DraftsApproveVE.js",
 			"dependencies": [
-				"ext.visualEditor.desktopArticleTarget.init"
+				"mediawiki.jqueryMsg",
+				"oojs-ui-core",
+				"oojs-ui-widgets"
 			]
 		},
 		"ext.DraftsApproveVEMobile": {
