@@ -242,7 +242,7 @@ class DraftHooks {
 		$user = $context->getUser();
 		if ( $user->isAllowed( 'edit' ) && $user->isRegistered() && !$user->isAllowed('drafts-approve') ) {
 			$output->addModules( 'ext.DraftsApproveVE' );
-			$output->addModules( 'ext.DraftsApproveVEMobile' );
+			//$output->addModules( 'ext.DraftsApproveVEMobile' );
 		}
 		return true;
 	}
