@@ -94,6 +94,9 @@
 				"mediawiki.jqueryMsg",
 				"oojs-ui-core",
 				"oojs-ui-widgets"
+			],
+			"messages": [
+				"draftsapprove-view-propose"
 			]
 		}
 	},
