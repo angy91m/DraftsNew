@@ -91,17 +91,13 @@
 		"ext.DraftsApproveVE": {
 			"scripts": "modules/ext.DraftsApproveVE.js",
 			"dependencies": [
-				"mediawiki.jqueryMsg",
-				"oojs-ui-core",
-				"oojs-ui-widgets"
+				"ext.visualEditor.desktopArticleTarget.init"
 			]
 		},
 		"ext.DraftsApproveVEMobile": {
 			"scripts": "modules/ext.DraftsApproveVEMobile.js",
 			"dependencies": [
-				"mediawiki.jqueryMsg",
-				"oojs-ui-core",
-				"oojs-ui-widgets"
+				"ext.visualEditor.mobileArticleTarget"
 			]
 		}
 	},
@@ -120,7 +116,7 @@
 		"EditPage::showEditForm:initial": "DraftHooks::loadForm",
 		"EditPage::attemptSave": "DraftHooks::onEditPage__attemptSave",
  		"VisualEditorApiVisualEditorEditPreSave": "DraftHooks::onVisualEditorApiVisualEditorEditPreSave",
-		"VisualEditorBeforeEditorHook": "DraftHooks::onVisualEditorBeforeEditorHook",
+		"VisualEditorBeforeEditor": "DraftHooks::onVisualEditorBeforeEditor",
 		"EditPage::attemptSave:after": "DraftHooks::onEditPage__attemptSave_after",
 		"ResourceLoaderGetConfigVars": "DraftHooks::onResourceLoaderGetConfigVars",
 		"LoadExtensionSchemaUpdates": "DraftHooks::schema"

@@ -237,8 +237,7 @@ class DraftHooks {
 		}
 	}
 
-	public static function onVisualEditorBeforeEditorHook($output, $skin) {
-		hSaveTest('prova');
+	public static function onVisualEditorBeforeEditor($output, $skin) {
 		$context = $output->getContext();
 		$user = $context->getUser();
 		if ( $user->isAllowed( 'edit' ) && $user->isRegistered() && !$user->isAllowed('drafts-approve') ) {
