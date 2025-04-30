@@ -1,12 +1,16 @@
+
+function changeSaveButtonTextMobile() {
+    const txt = document.querySelector( '.oo-ui-processDialog-navigation .oo-ui-processDialog-actions-primary .oo-ui-labelElement-label' )?.innerText;
+    if (txt && txt !== 'Proponi') {
+        document.querySelector( '.oo-ui-processDialog-navigation .oo-ui-processDialog-actions-primary .oo-ui-labelElement-label' ).innerText = 'Proponi';
+    }
+}
 function changeSaveButtonText() {
     const saveButton = document.querySelector('.ve-ui-toolbar-group-save .oo-ui-tool-title');
     if (saveButton) {
-        saveButton.textContent = 'Proponi';
+        saveButton.innerText = 'Proponi' + '...';
     }
+    new MutationObserver(changeSaveButtonTextMobile);
+    observer.observe(document.querySelector('.oo-ui-processDialog-actions-primary'), {childList: true, subtree: true});
 }
-function changeSaveButtonTextMobile() {
-    console.log(document.querySelector( '.oo-ui-processDialog-navigation .oo-ui-processDialog-actions-primary .oo-ui-labelElement-label' ).innerText);
-}
-
 mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
-mw.hook( 've.saveDialog.stateChanged' ).add( changeSaveButtonTextMobile );
