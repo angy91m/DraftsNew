@@ -87,6 +87,18 @@
 				"draftsapprove-save-error",
 				"draftsapprove-view-warn"
 			]
+		},
+		"ext.DraftsApproveVE": {
+			"scripts": "modules/ext.DraftsApproveVE.js",
+			"dependencies": [
+				"ext.visualEditor.desktopArticleTarget.init"
+			]
+		},
+		"ext.DraftsApproveVEMobile": {
+			"scripts": "modules/ext.DraftsApproveVEMobile.js",
+			"dependencies": [
+				"ext.visualEditor.mobileArticleTarget"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -104,6 +116,7 @@
 		"EditPage::showEditForm:initial": "DraftHooks::loadForm",
 		"EditPage::attemptSave": "DraftHooks::onEditPage__attemptSave",
  		"VisualEditorApiVisualEditorEditPreSave": "DraftHooks::onVisualEditorApiVisualEditorEditPreSave",
+		"VisualEditorBeforeEditorHook": "DraftHooks::onVisualEditorBeforeEditorHook",
 		"EditPage::attemptSave:after": "DraftHooks::onEditPage__attemptSave_after",
 		"ResourceLoaderGetConfigVars": "DraftHooks::onResourceLoaderGetConfigVars",
 		"LoadExtensionSchemaUpdates": "DraftHooks::schema"

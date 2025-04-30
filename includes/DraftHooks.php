@@ -237,6 +237,15 @@ class DraftHooks {
 		}
 	}
 
+	public static function onVisualEditorBeforeEditorHook($output, $skin) {
+		$context = $output->getContext();
+		$user = $context->getUser();
+		if ( $user->isAllowed( 'edit' ) && $user->isRegistered() && !$user->isAllowed('drafts-approve') ) {
+			$output->addModules( 'ext.DraftsApproveVE' );
+			$output->addModules( 'ext.DraftsApproveVEMobile' );
+		}
+	}
+
 	/**
 	 * This is attached to the MediaWiki 'EditPage::attemptSave' hook.
 	 *
