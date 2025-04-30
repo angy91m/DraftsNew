@@ -10,6 +10,6 @@ function changeSaveButtonText() {
     if (saveButton) {
         saveButton.innerText = 'Proponi' + '...';
     }
-    new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('#mw-teleport-target ve-ui-overlay-global .ve-ui-overlay-global-mobile.ve-ui-overlay'), {childList: true, subtree: true});
+    new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('#mw-teleport-target .ve-ui-overlay-global.ve-ui-overlay-global-mobile.ve-ui-overlay'), {childList: true, subtree: true});
 }
 mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
