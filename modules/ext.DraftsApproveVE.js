@@ -10,7 +10,6 @@ function changeSaveButtonText() {
     if (saveButton) {
         saveButton.innerText = 'Proponi' + '...';
     }
-    new MutationObserver(changeSaveButtonTextMobile);
-    observer.observe(document.querySelector('.oo-ui-processDialog-actions-primary'), {childList: true, subtree: true});
+    new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('.oo-ui-processDialog-actions-primary'), {childList: true, subtree: true});
 }
 mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
