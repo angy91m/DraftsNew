@@ -73,8 +73,8 @@
 	},
 	"ResourceModules": {
 		"ext.DraftsApprove": {
-			"scripts": "modules/ext.Drafts.js",
-			"styles": "modules/ext.Drafts.css",
+			"scripts": "modules/ext.DraftsApprove.js",
+			"styles": "modules/ext.DraftsApprove.css",
 			"dependencies": [
 				"mediawiki.jqueryMsg",
 				"oojs-ui-core",
