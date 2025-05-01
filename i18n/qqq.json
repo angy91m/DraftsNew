@@ -10,7 +10,7 @@
 		]
 	},
 	"draftsapprove": "{{doc-special|Drafts}}\n{{Identical|Draft}}",
-	"draftsapprovetoapprove": "{{doc-special|Drafts To Approve}}\n{{Identical|Draft To Approve}}",
+	"draftsapproveproposed": "{{doc-special|Drafts To Approve}}\n{{Identical|Draft To Approve}}",
 	"draftsapprove-desc": "{{desc|name=Drafts|url=https://www.mediawiki.org/wiki/Extension:Drafts}}",
 	"draftsapprove-view": "Unused at this time.",
 	"draftsapprove-view-summary": "Used in [[Special:Drafts]] when there is at least one draft saved. Parameters:\n* $1 - number of days. Default value: 30",

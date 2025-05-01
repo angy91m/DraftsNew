@@ -5,7 +5,7 @@
 		]
 	},
 	"draftsapprove": "Drafts",
-	"draftsapprovetoapprove": "Drafts to approve",
+	"draftsapproveproposed": "Drafts to approve",
 	"draftsapprove-desc": "Adds the ability to save [[Special:Drafts|draft]] versions of a page on the server",
 	"draftsapprove-view": "ViewDraft",
 	"draftsapprove-view-summary": "This special page shows a list of all existing drafts.\nUnused drafts will be discarded after {{PLURAL:$1|$1 day|$1 days}} automatically.",
