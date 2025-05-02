@@ -30,7 +30,9 @@ function onActivation() {
                 setTimeout(() => {
                     document.querySelector('.oo-ui-processDialog-errors-actions').style.display = 'none';
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-flaggedElement-error').classList.replace('oo-ui-flaggedElement-error', 'oo-ui-flaggedElement-success');
-                    document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error').classList.replace('oo-ui-icon-error', 'oo-ui-icon-success');
+                    const icon = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error');
+                    icon.classList.replace('oo-ui-icon-error', 'oo-ui-icon-success');
+                    console.log(icon);
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-success.oo-ui-image-error').classList.replace('oo-ui-icon-error', 'oo-ui-icon-success');
                 }, 0);
                 // setTimeout(() => {
