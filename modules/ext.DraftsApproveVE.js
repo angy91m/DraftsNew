@@ -22,8 +22,8 @@ function onActivation() {
     const target = ve.init.target;
     if (!target) return;
     target.connect( null, {
-        saveError: resp => {
-            console.log(resp);
+        saveError: (...args) => {
+            console.log(args);
         }
     } );
 }
