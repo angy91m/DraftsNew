@@ -21,10 +21,10 @@ function onActivation() {
     changeSaveButtonText();
     const target = ve.init.target;
     if (!target) return;
-    target.connect( null, {
-        saveErrorHookAborted: resp => {
-            console.log(resp);
-        }
-    } );
+    const origSaveErrorHookAborted = target.saveErrorHookAborted;
+    target.saveErrorHookAborted = function(data) {
+        origSaveErrorHookAborted.call(this, data);
+        console.log(data);
+    };
 }
 mw.hook( 've.activationComplete' ).add( onActivation );
