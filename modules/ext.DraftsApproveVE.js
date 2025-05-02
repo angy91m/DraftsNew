@@ -28,17 +28,16 @@ function onActivation() {
             const error = data.errors[0];
             if (error.data?.edit?.redirectTarget) {
                 setTimeout(() => {
+                    document.querySelector('.oo-ui-processDialog-errors-title').style.display = 'none';
                     document.querySelector('.oo-ui-processDialog-errors-actions').style.display = 'none';
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-flaggedElement-error').classList.replace('oo-ui-flaggedElement-error', 'oo-ui-flaggedElement-success');
                     const icon = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error');
                     icon.classList.remove('oo-ui-icon-error', 'oo-ui-image-error');
                     icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
                 }, 10);
-                const preventDefault = evt => evt.preventDefault();
                 setTimeout(() => {
-                    //window.onbeforeunload = null;
-                    window.addEventListener('beforeunload', preventDefault);
-                    window.addEventListener('pagehide', preventDefault);
+                    window.onbeforeunload = null;
+                    window.onpagehide = null;
                     location.href = error.data.edit.redirectTarget;
                 }, 3000);
             }
