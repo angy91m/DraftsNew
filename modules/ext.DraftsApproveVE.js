@@ -34,9 +34,11 @@ function onActivation() {
                     icon.classList.remove('oo-ui-icon-error', 'oo-ui-image-error');
                     icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
                 }, 10);
+                const preventDefault = evt => evt.preventDefault();
                 setTimeout(() => {
-                    window.onbeforeunload = null;
-                    window.confirm = function() {};
+                    //window.onbeforeunload = null;
+                    window.addEventListener('beforeunload', preventDefault);
+                    window.addEventListener('pagehide', preventDefault);
                     location.href = error.data.edit.redirectTarget;
                 }, 3000);
             }
