@@ -22,8 +22,8 @@ function onActivation() {
     const target = ve.init.target;
     if (!target) return;
     target.connect( null, {
-        saveError: () => {
-            console.log(target.saveDialog && target.saveDialog.lastApiResponse);
+        saveErrorHookAborted: resp => {
+            console.log(resp);
         }
     } );
 }
