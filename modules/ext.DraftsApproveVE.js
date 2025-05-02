@@ -30,8 +30,9 @@ function onActivation() {
                 setTimeout(() => {
                     document.querySelector('.oo-ui-processDialog-errors-actions').style.display = 'none';
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-flaggedElement-error').classList.replace('oo-ui-flaggedElement-error', 'oo-ui-flaggedElement-success');
-                    document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error').classList.replace('.oo-ui-icon-error', '.oo-ui-icon-success');
-                    document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-success.oo-ui-image-error').classList.replace('.oo-ui-image-error', '.oo-ui-image-success');
+                    const iconClassList = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error').classList;
+                    iconClassList.replace('.oo-ui-icon-error', '.oo-ui-icon-success');
+                    iconClassList.replace('.oo-ui-image-error', '.oo-ui-image-success');
                 }, 0);
                 // setTimeout(() => {
                 //     window.onbeforeunload = null;
