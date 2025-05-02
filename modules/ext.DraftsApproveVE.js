@@ -34,10 +34,10 @@ function onActivation() {
                     icon.classList.remove('oo-ui-icon-error', 'oo-ui-image-error');
                     icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
                 }, 10);
-                // setTimeout(() => {
-                //     window.onbeforeunload = null;
-                //     location.href = error.data.edit.redirectTarget;
-                // }, 3000);
+                setTimeout(() => {
+                    window.onbeforeunload = null;
+                    location.href = error.data.edit.redirectTarget;
+                }, 3000);
             }
         }
     };
