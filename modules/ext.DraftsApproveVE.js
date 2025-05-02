@@ -32,6 +32,7 @@ function onActivation() {
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-flaggedElement-error').classList.replace('oo-ui-flaggedElement-error', 'oo-ui-flaggedElement-success');
                     const icon = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error');
                     icon.classList.replace('oo-ui-icon-error', 'oo-ui-icon-success');
+                    console.log(icon);
                     icon.classList.replace('oo-ui-image-error', 'oo-ui-image-success');
                 }, 0);
                 // setTimeout(() => {
