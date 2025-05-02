@@ -19,12 +19,12 @@ function changeSaveButtonText() {
 
 function onActivation() {
     changeSaveButtonText();
-    const target = ve.init.target;
-    if (!target) return;
-    target.connect( null, {
-        saveError: resp => {
-            if (resp && resp.edit && resp.edit.redirectTarget) window.location.href = resp.edit.redirectTarget;
-        }
-    } );
+    // const target = ve.init.target;
+    // if (!target) return;
+    // target.connect( null, {
+    //     saveError: resp => {
+    //         if (resp && resp.edit && resp.edit.redirectTarget) window.location.href = resp.edit.redirectTarget;
+    //     }
+    // } );
 }
 mw.hook( 've.activationComplete' ).add( onActivation );
