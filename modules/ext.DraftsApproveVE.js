@@ -21,10 +21,9 @@ function onActivation() {
     changeSaveButtonText();
     const target = ve.init.target;
     if (!target) return;
-    console.log(target);
     target.connect( null, {
         saveError: resp => {
-            if (resp && resp.edit && resp.edit.redirectTarget) window.location.href = resp.edit.redirectTarget;
+            console.log(resp);
         }
     } );
 }
