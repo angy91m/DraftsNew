@@ -59,5 +59,5 @@
 	"draftsapprove-author": "Autore",
 	"draftsapprove-refuser": "Utente rifiutante",
 	"draftsapprove-refuse-reason": "Motivo rifiuto",
-	"apierror-savedrafts-await-verify": "Le tue modifiche sono in fase di verifica"
+	"apierror-savedrafts-await-verify": "Le tue modifiche sono in fase di verifica. Stai per essere reindirizzato..."
 }

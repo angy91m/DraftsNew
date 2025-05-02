@@ -58,5 +58,5 @@
 	"draftsapprove-author": "Author",
 	"draftsapprove-refuser": "Refuse user",
 	"draftsapprove-refuse-reason": "Refuse reason",
-	"apierror-savedrafts-await-verify": "Your edits are awaiting a verify"
+	"apierror-savedrafts-await-verify": "Your edits are awaiting a verify. You will be redirect..."
 }
