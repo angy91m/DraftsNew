@@ -32,7 +32,7 @@ function onActivation() {
                     document.querySelector('.oo-ui-processDialog-errors .oo-ui-flaggedElement-error').classList.replace('oo-ui-flaggedElement-error', 'oo-ui-flaggedElement-success');
                     const icon = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error');
                     icon.classList.remove('oo-ui-icon-error', 'oo-ui-image-error');
-                    icon.classList.add('oo-ui-icon-success', 'oo-ui-image-error');
+                    icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
                 }, 0);
                 // setTimeout(() => {
                 //     window.onbeforeunload = null;
