@@ -27,10 +27,10 @@ function onActivation() {
         if (data.errors && Array.isArray(data.errors) && data.errors.length) {
             const error = data.errors[0];
             if (error.data?.edit?.redirectTarget) {
-                setTimeout(() => {
-                    window.onbeforeunload = null;
-                    location.href = error.data.edit.redirectTarget;
-                }, 3000);
+                // setTimeout(() => {
+                //     window.onbeforeunload = null;
+                //     location.href = error.data.edit.redirectTarget;
+                // }, 3000);
             }
         }
     };
