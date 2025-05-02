@@ -24,7 +24,12 @@ function onActivation() {
     const origSaveErrorHookAborted = target.saveErrorHookAborted;
     target.saveErrorHookAborted = function(data) {
         origSaveErrorHookAborted.call(this, data);
-        console.log(data);
+        if (data.errors && Array.isArray(data.errors) && data.errors.length) {
+            const error = data.errors[0];
+            if (error.data?.edit?.redirectTarget) {
+                location.href = error.data.edit.redirectTarget;
+            }
+        }
     };
 }
 mw.hook( 've.activationComplete' ).add( onActivation );
