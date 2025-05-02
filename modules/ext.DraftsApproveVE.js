@@ -33,7 +33,7 @@ function onActivation() {
                     const icon = document.querySelector('.oo-ui-processDialog-errors .oo-ui-icon-error.oo-ui-image-error');
                     icon.classList.remove('oo-ui-icon-error', 'oo-ui-image-error');
                     icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
-                }, 0);
+                }, 10);
                 // setTimeout(() => {
                 //     window.onbeforeunload = null;
                 //     location.href = error.data.edit.redirectTarget;
