@@ -244,6 +244,7 @@ class DraftHooks {
 				$draft->setSummary( $params['summary'] );
 				$draft->setMinorEdit( (bool) $params['minor'] );
 				$draft->setStatus( 'proposed' );
+				$draft-setToken( MWCryptRand::generateHex( 32 ) );
 				$draft->save();
 				$apiResponse['message'] = ['apiwarning-savedrafts-await-verify'];
 			} else {
