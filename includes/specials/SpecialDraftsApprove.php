@@ -58,7 +58,7 @@ class SpecialDraftsApprove extends SpecialPage {
 			}
 		}
 		if ($request->getInt( 'proposed', 0 )) {
-			$out->addWikiMsg( 'apiwarning-savedrafts-await-verify' );
+			$out->addWikiMsg( 'apierror-savedrafts-await-verify' );
 		}
 
 		$count = Drafts::num();

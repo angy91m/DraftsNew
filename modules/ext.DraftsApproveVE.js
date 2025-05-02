@@ -12,4 +12,15 @@ function changeSaveButtonText() {
     }
     new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('#mw-teleport-target .ve-ui-overlay-global.ve-ui-overlay-global-mobile.ve-ui-overlay'), {childList: true, subtree: true});
 }
-mw.hook( 've.activationComplete' ).add( changeSaveButtonText );
+
+function onActivation() {
+    changeSaveButtonText();
+    const target = ve.init.target;
+    if (!target) return;
+    target.connect( null, {
+        saveError: resp => {
+            if (resp && resp.edit && resp.edit.redirectTarget) window.location.href = resp.edit.redirectTarget;
+        }
+    } );
+}
+mw.hook( 've.activationComplete' ).add( onActivation );

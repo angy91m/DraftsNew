@@ -246,7 +246,8 @@ class DraftHooks {
 				$draft->setStatus( 'proposed' );
 				$draft->setToken( MWCryptRand::generateHex( 32 ) );
 				$draft->save();
-				$apiResponse['message'] = ['apiwarning-savedrafts-await-verify'];
+				$apiResponse['message'] = ['apierror-savedrafts-await-verify'];
+				$apiResponse['edit']['redirectTarget'] = SpecialPage::getTitleFor('DraftsApprove')->getFullURL('proposed=1');
 			} else {
 				$apiResponse['message'] = ['apierror-approvedrafts-permissions'];
 			}
