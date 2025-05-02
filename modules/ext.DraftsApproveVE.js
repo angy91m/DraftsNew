@@ -27,6 +27,7 @@ function onActivation() {
         if (data.errors && Array.isArray(data.errors) && data.errors.length) {
             const error = data.errors[0];
             if (error.data?.edit?.redirectTarget) {
+                window.removeEventListener('onbeforeunload');
                 location.href = error.data.edit.redirectTarget;
             }
         }
