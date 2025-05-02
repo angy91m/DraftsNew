@@ -221,7 +221,7 @@ function Draft() {
 			jQuery( '.mw-discard-draft-link' ).on( 'click', function ( event ) {
 				// *Always* prevent default action, which is to follow the link
 				// eslint-disable-next-line no-alert
-				if ( !confirm( mediaWiki.msg( 'drafts-view-warn' ) ) ) {
+				if ( !confirm( mediaWiki.msg( 'draftsapprove-view-warn' ) ) ) {
 					event.preventDefault();
 				}
 			} );
