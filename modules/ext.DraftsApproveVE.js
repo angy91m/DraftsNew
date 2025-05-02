@@ -36,7 +36,7 @@ function onActivation() {
                 }, 10);
                 setTimeout(() => {
                     window.onbeforeunload = null;
-                    document.onvisibilitychange = null;
+                    target.preventUnload = false;
                     location.href = error.data.edit.redirectTarget;
                 }, 3000);
             }
