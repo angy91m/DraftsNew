@@ -35,7 +35,8 @@ function onActivation() {
                     icon.classList.add('oo-ui-icon-success', 'oo-ui-image-success');
                 }, 10);
                 setTimeout(() => {
-                    target.preventUnload = false;
+                    window.onbeforeunload = null;
+                    window.confirm = function() {};
                     location.href = error.data.edit.redirectTarget;
                 }, 3000);
             }
