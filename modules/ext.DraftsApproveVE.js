@@ -6,11 +6,15 @@ function changeSaveButtonTextMobile() {
     }
 }
 function changeSaveButtonText() {
-    const saveButton = document.querySelector('.ve-ui-toolbar-group-save .oo-ui-tool-title');
-    if (saveButton) {
-        saveButton.innerText = mediaWiki.message( 'draftsapprove-view-propose' ).text() + '...';
-    }
-    new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('#mw-teleport-target .ve-ui-overlay-global.ve-ui-overlay-global-mobile.ve-ui-overlay'), {childList: true, subtree: true});
+    try {
+        const saveButton = document.querySelector('.ve-ui-toolbar-group-save .oo-ui-tool-title');
+        if (saveButton) {
+            saveButton.innerText = mediaWiki.message( 'draftsapprove-view-propose' ).text() + '...';
+        }
+    } catch {}
+    try {
+        new MutationObserver(changeSaveButtonTextMobile).observe(document.querySelector('#mw-teleport-target .ve-ui-overlay-global.ve-ui-overlay-global-mobile.ve-ui-overlay'), {childList: true, subtree: true});
+    } catch {}
 }
 
 function onActivation() {
